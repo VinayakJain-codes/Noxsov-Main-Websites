@@ -153,9 +153,9 @@ export function RoiCalculator() {
                   </span>
                 </div>
                 <div className="flex justify-between font-bold text-slate-900 dark:text-white">
-                  <span>NOXSOV Sovereign Tier:</span>
+                  <span>NOXSOV Sovereign Fleet:</span>
                   <span className="text-cyan-600 dark:text-cyan-400">
-                    ${formatNumber(noxsovAnnualCost)} / yr flat
+                    Custom Flat Tier (Zero Per-Seat Tax)
                   </span>
                 </div>
               </div>

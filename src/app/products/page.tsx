@@ -36,14 +36,14 @@ export default function ProductsDirectoryPage() {
               href="/store"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-black bg-cyan-400 hover:bg-cyan-300 transition-colors shadow-md shadow-cyan-500/20"
             >
-              <span>Browse Software Store & Licenses</span>
+              <span>Explore Software Catalog</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
             <Link
-              href="/store/license"
+              href="/contact"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-white glass-panel hover:bg-slate-200/50 dark:hover:bg-white/[0.08] border border-slate-300 dark:border-white/[0.1] transition-colors"
             >
-              <span>License Verification Portal</span>
+              <span>Contact Enterprise Sales</span>
             </Link>
           </div>
         </div>

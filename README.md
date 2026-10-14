@@ -14,7 +14,7 @@
 [![Python OpenCV](https://img.shields.io/badge/OpenCV-AI_Verification-5c3ee8?style=for-the-badge&logo=opencv&logoColor=white)](https://opencv.org/)
 [![EmailJS](https://img.shields.io/badge/EmailJS-Live_Dispatch-ea580c?style=for-the-badge&logo=mailgun&logoColor=white)](https://www.emailjs.com/)
 
-[**Explore Live Platform**](http://localhost:3000) • [**Software Store**](http://localhost:3000/store) • [**License Verification**](http://localhost:3000/store/license) • [**Contact & Deployment**](http://localhost:3000/contact)
+[**Explore Live Platform**](http://localhost:3000) • [**Software Catalog**](http://localhost:3000/store) • [**Products Overview**](http://localhost:3000/products) • [**Contact & Deployment**](http://localhost:3000/contact)
 
 </div>
 
@@ -25,9 +25,9 @@
 **NOXSOV** engineers mission-critical enterprise systems designed from first principles for sovereignty, high concurrency, and zero per-seat SaaS taxes.
 
 Modern enterprise software traps organizations in perpetual per-user licensing penalties, vendor lock-in, and unpredictable cloud egress fees. NOXSOV breaks this paradigm:
-- **Zero Per-Seat SaaS Taxes:** Deploy software across 10 or 10,000 operators with deterministic, perpetual or single-fleet cryptographic licensing.
+- **Zero Per-Seat SaaS Taxes:** Deploy software across 10 or 10,000 operators with deterministic, single-fleet commercial terms.
 - **Air-Gapped & Sovereign Ready:** Deployable on enterprise VPCs, on-premise Kubernetes clusters, or sovereign cloud infrastructure without forced external cloud telemetry.
-- **Cryptographic License Verification:** Built-in ED25519 cryptographic license audit engine allowing stakeholders to independently verify fleet entitlement, node caps, and authenticity.
+- **Direct Enterprise Engagement:** Fixed-scope deployment consultation and direct contact form intake (`/contact`) routing inquiries directly to engineering leads.
 - **Adaptive Ergonomics:** Native light theme default with seamless dark theme switching, responsive micro-animations, and full keyboard-driven navigation (`⌘K` / `Ctrl+K`).
 
 ---
@@ -76,8 +76,7 @@ graph TD
     
     subgraph "NOXSOV Platform Core"
         NextApp --> ThemeEngine[Theme Engine: Light Default / Dark Toggle]
-        NextApp --> StoreEngine[Software Store & Cart System]
-        NextApp --> LicenseAudit[ED25519 Cryptographic License Auditor]
+        NextApp --> StoreEngine[Software Catalog & Direct Inquiry System]
         NextApp --> CmdK[Command Palette Engine]
         NextApp --> ContactAPI[Contact API & EmailJS Gateway]
     end
@@ -107,21 +106,17 @@ graph TD
 
 ## 💻 Interactive Platform Capabilities
 
-1. **Software Store Catalog (`/store`):**
-   - Live software store with tier selection (Community, Professional, Sovereign Enterprise, Air-Gapped Appliance).
-   - Dynamic real-time cart drawer, instant subtotal calculation, and cryptographic checkout simulator with auto-generated license key delivery.
+1. **Software Solutions Catalog (`/store`):**
+   - Live software catalog with tier capability breakdowns (Starter, Enterprise Agency, Sovereign Fleet).
+   - "Request Deployment Quote" direct inquiry flow pre-filling chosen product and tier into the contact form.
 
-2. **Cryptographic License Audit Portal (`/store/license`):**
-   - Independent verification interface for enterprise license keys.
-   - Computes SHA-256 and ED25519 checksums, validating seat caps, deployment environment, and entitlement authenticity.
+2. **Global Command Palette (`⌘K` / `Ctrl+K`):**
+   - Instant keyboard-driven search and navigation across products, architecture briefs, and contact avenues.
 
-3. **Global Command Palette (`⌘K` / `Ctrl+K`):**
-   - Instant keyboard-driven search and navigation across products, architecture briefs, portals, and contact avenues.
-
-4. **Interactive Telemetry Simulator:**
+3. **Interactive Telemetry Simulator:**
    - Real-time simulated telemetry for edge cluster status, active nodes, throughput, latency, and packet drop monitoring.
 
-5. **Contact Dispatch with EmailJS Integration (`/contact`):**
+4. **Contact Dispatch with EmailJS Integration (`/contact`):**
    - Live form submission wired to EmailJS with server-side REST fallback and unique tracking ticket ID generation (`TKT-2026-XXXX`).
 
 ---
@@ -144,21 +139,20 @@ Noxsov/
 │   │   ├── about/              # Company narrative & sovereign manifesto
 │   │   ├── products/           # Deep-dive product briefs (Kryptik, Events, Tax, etc.)
 │   │   ├── categories/         # Security, Finance, and IT Solutions hubs
-│   │   ├── store/              # Software store catalog & checkout
-│   │   │   └── license/        # Public Cryptographic License Audit Portal
+│   │   ├── store/              # Software catalog & direct quote request
 │   │   ├── contact/            # Enterprise briefing & deployment request form
 │   │   └── api/
 │   │       └── contact/        # Server-side Contact & EmailJS REST endpoint
 │   ├── components/             # Reusable UI component library
 │   │   ├── layout/             # Navbar, Footer, MobileNav
 │   │   ├── home/               # Hero, ValueProps, LiveTelemetry, ProductGrid
-│   │   ├── store/              # CartDrawer, CheckoutModal, OrderReceiptModal
+│   │   ├── store/              # StoreCatalogView, StoreProductCard
 │   │   ├── contact/            # ContactForm (live EmailJS integration)
 │   │   ├── theme/              # ThemeProvider & ThemeToggle
 │   │   └── ui/                 # BrandLogo, BackToTop, CommandPalette, Badges
-│   ├── context/                # React context providers (CartContext, etc.)
+│   ├── context/                # React context providers
 │   ├── data/                   # Structured catalog data, products, and specs
-│   ├── lib/                    # Helper libraries, email.ts, license audit utilities
+│   ├── lib/                    # Helper libraries & email.ts
 │   └── types/                  # TypeScript domain models and interfaces
 ├── .env.example                # Example environment variable template
 ├── .env.local                  # Local environment configuration (git-ignored)
@@ -231,8 +225,7 @@ Noxsov/
 
 - **Zero Privilege Escalation:** Role metadata is strictly bound to server-side Postgres tables with strict Foreign Key constraints and Supabase RLS, preventing `user_metadata` tampering.
 - **Air-Gapped Telemetry:** No mandatory external beaconing or telemetry trackers.
-- **Rate-Limited Endpoints:** Contact and license verification APIs enforce sub-second payload checks and input sanitation.
-- **Cryptographic Hashing:** Licensing engine uses SHA-256 payload signing and ED25519 key verification.
+- **Rate-Limited Endpoints:** Contact APIs enforce sub-second payload checks and input sanitation.
 
 ---
 

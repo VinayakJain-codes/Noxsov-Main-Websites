@@ -107,9 +107,6 @@ export default function RootLayout({
             <Navbar />
             <div className="flex-1 flex flex-col">{children}</div>
             <Footer />
-            <CartDrawer />
-            <CheckoutModal />
-            <OrderReceiptModal />
             <BackToTop />
           </CartProvider>
         </ThemeProvider>

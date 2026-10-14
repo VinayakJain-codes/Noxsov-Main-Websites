@@ -49,7 +49,7 @@ export function Hero() {
           </h1>
 
           <p className="text-lg sm:text-xl text-slate-600 dark:text-neutral-300 max-w-2xl mx-auto leading-relaxed">
-            NOXSOV delivers sovereign software systems across <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Security</span>, <span className="text-amber-600 dark:text-amber-400 font-semibold">Finance</span>, and <span className="text-blue-600 dark:text-blue-400 font-semibold">Enterprise IT</span>—with instant cryptographic licensing, air-gapped readiness, and zero per-seat taxes.
+            NOXSOV delivers sovereign software systems across <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Security</span>, <span className="text-amber-600 dark:text-amber-400 font-semibold">Finance</span>, and <span className="text-blue-600 dark:text-blue-400 font-semibold">Enterprise IT</span>—with air-gapped readiness, enterprise data sovereignty, and zero per-seat taxes.
           </p>
 
           {/* Action CTAs */}
@@ -60,17 +60,17 @@ export function Hero() {
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-black bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all active:scale-[0.98]"
             >
               <ShoppingBag className="w-4 h-4" />
-              <span>Browse Software Store</span>
+              <span>Explore Software Catalog</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
 
             <Link
-              id="hero-license-portal-btn"
-              href="/store/license"
+              id="hero-contact-btn"
+              href="/contact"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-slate-900 dark:text-white glass-panel hover:bg-slate-200/50 dark:hover:bg-white/[0.08] border border-slate-300 dark:border-white/[0.12] transition-colors"
             >
-              <KeyRound className="w-4 h-4 text-cyan-500" />
-              <span>Verify License Portal</span>
+              <span>Contact Enterprise Sales</span>
+              <ArrowRight className="w-4 h-4 text-cyan-500" />
             </Link>
           </div>
 

@@ -17,7 +17,7 @@ export function StoreCatalogView() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedStatus, setSelectedStatus] = useState("all");
-  const [sortBy, setSortBy] = useState<"featured" | "price-asc" | "price-desc" | "rating">("featured");
+  const [sortBy, setSortBy] = useState<"featured" | "rating" | "alphabetical">("featured");
 
   const filteredProducts = useMemo(() => {
     let list = [...STORE_CATALOG];
@@ -41,12 +41,10 @@ export function StoreCatalogView() {
       );
     }
 
-    if (sortBy === "price-asc") {
-      list.sort((a, b) => a.startingAnnualPrice - b.startingAnnualPrice);
-    } else if (sortBy === "price-desc") {
-      list.sort((a, b) => b.startingAnnualPrice - a.startingAnnualPrice);
-    } else if (sortBy === "rating") {
+    if (sortBy === "rating") {
       list.sort((a, b) => b.rating - a.rating);
+    } else if (sortBy === "alphabetical") {
+      list.sort((a, b) => a.name.localeCompare(b.name));
     }
 
     return list;
@@ -84,7 +82,7 @@ export function StoreCatalogView() {
               className="w-full px-3 py-2.5 text-xs rounded-xl border border-slate-200 dark:border-white/[0.1] bg-white dark:bg-white/[0.03] text-slate-900 dark:text-white focus:outline-none focus:border-cyan-500"
             >
               <option value="all">All Release States</option>
-              <option value="Delivered">Delivered (Instant License)</option>
+              <option value="Delivered">Delivered (Active Production)</option>
               <option value="In progress">In Progress (Early Access)</option>
               <option value="Concept">Concept (Pilot Reservation)</option>
             </select>
@@ -98,9 +96,8 @@ export function StoreCatalogView() {
               className="w-full px-3 py-2.5 text-xs rounded-xl border border-slate-200 dark:border-white/[0.1] bg-white dark:bg-white/[0.03] text-slate-900 dark:text-white focus:outline-none focus:border-cyan-500"
             >
               <option value="featured">Sort by: Featured</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
               <option value="rating">Highest Rated</option>
+              <option value="alphabetical">Alphabetical (A-Z)</option>
             </select>
           </div>
         </div>

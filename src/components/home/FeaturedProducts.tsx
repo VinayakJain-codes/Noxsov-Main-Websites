@@ -105,7 +105,7 @@ export function FeaturedProducts() {
                         href={`/products/${prod.slug}`}
                         className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-black bg-cyan-400 hover:bg-cyan-300 transition-colors shadow-md shadow-cyan-500/20"
                       >
-                        <span>View Product & Pricing</span>
+                        <span>View Architecture & Specs</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
 
@@ -239,10 +239,10 @@ export function FeaturedProducts() {
               Direct Software Procurement
             </div>
             <h4 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-              Looking for Immediate Cryptographic Licensing & Node Pricing?
+              Looking for Custom Enterprise Deployment & Technical Briefings?
             </h4>
             <p className="text-xs text-slate-600 dark:text-neutral-400">
-              Browse our complete software catalog, configure cluster tiers, and receive instant air-gapped license certificates.
+              Browse our complete software catalog, review technical specifications, and request customized enterprise deployment terms.
             </p>
           </div>
 
@@ -250,7 +250,7 @@ export function FeaturedProducts() {
             href="/store"
             className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-xs text-black bg-cyan-400 hover:bg-cyan-300 shadow-md shadow-cyan-500/20 transition-all active:scale-[0.98]"
           >
-            <span>Open Software Store</span>
+            <span>Explore Software Catalog</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

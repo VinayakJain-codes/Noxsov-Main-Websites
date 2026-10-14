@@ -114,15 +114,7 @@ export function Footer() {
                   href="/store"
                   className="text-cyan-600 dark:text-cyan-400 font-semibold hover:underline transition-colors flex items-center gap-1.5"
                 >
-                  <span>Software Store & Licenses</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/store/license"
-                  className="text-slate-600 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-white transition-colors"
-                >
-                  License Verification Portal
+                  <span>Software Catalog & Solutions</span>
                 </Link>
               </li>
               <li>

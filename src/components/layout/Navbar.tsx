@@ -256,18 +256,7 @@ export function Navbar() {
                   </span>
                 </Link>
 
-                {/* License Portal Link */}
-                <Link
-                  id="nav-license-link"
-                  href="/store/license"
-                  className={`px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                    pathname.startsWith("/store/license")
-                      ? "text-cyan-600 dark:text-cyan-400 bg-slate-100 dark:bg-white/[0.05]"
-                      : "text-slate-700 dark:text-neutral-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/[0.03]"
-                  }`}
-                >
-                  Licenses
-                </Link>
+
 
                 {/* About Link */}
                 <Link
@@ -299,32 +288,7 @@ export function Navbar() {
 
             {/* Right Action Tools: Search, Sovereign Status, Theme Toggle, Contact CTA */}
             <div className="flex items-center gap-2 sm:gap-3">
-              {/* Interactive Cart Button */}
-              <button
-                id="nav-cart-trigger-btn"
-                type="button"
-                onClick={() => setIsCartOpen(true)}
-                className="relative flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold
-                  bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200
-                  dark:bg-white/[0.04] dark:hover:bg-white/[0.08] dark:text-white dark:border-white/[0.08] transition-all"
-                title="Open Software Store Cart"
-                aria-label={`Open Cart (${cartCount} items)`}
-              >
-                <ShoppingCart className="w-4 h-4 text-cyan-500" />
-                <span className="hidden sm:inline">Cart</span>
-                {cartCount > 0 ? (
-                  <span className="relative flex items-center justify-center">
-                    <span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-cyan-400 opacity-75"></span>
-                    <span className="relative inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 text-[10px] font-mono font-bold rounded-full bg-cyan-500 text-black">
-                      {cartCount}
-                    </span>
-                  </span>
-                ) : (
-                  <span className="text-[10px] font-mono text-slate-400 dark:text-neutral-500">
-                    0
-                  </span>
-                )}
-              </button>
+
 
               {/* Quick Search / Command Palette trigger */}
               <button
@@ -441,32 +405,7 @@ export function Navbar() {
                 </div>
                 <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
               </Link>
-              <Link
-                href="/store/license"
-                className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-slate-800 dark:text-neutral-200 hover:bg-slate-100 dark:hover:bg-white/[0.05]"
-              >
-                <div className="flex items-center gap-2">
-                  <KeyRound className="w-4 h-4 text-emerald-500" />
-                  <span>License Verification Portal</span>
-                </div>
-                <span className="text-[10px] font-mono text-emerald-600 dark:text-emerald-400">Audit</span>
-              </Link>
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  setIsCartOpen(true);
-                }}
-                className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm text-slate-800 dark:text-neutral-200 hover:bg-slate-100 dark:hover:bg-white/[0.05]"
-              >
-                <div className="flex items-center gap-2">
-                  <ShoppingCart className="w-4 h-4 text-cyan-500" />
-                  <span>View Software Cart</span>
-                </div>
-                <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-cyan-500 text-black">
-                  {cartCount}
-                </span>
-              </button>
+
             </div>
 
             <div className="space-y-1 border-t border-slate-200 dark:border-white/[0.06] pt-3">
