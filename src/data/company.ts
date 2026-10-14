@@ -58,10 +58,10 @@ export const COMPANY_INFO = {
   ],
   leadership: [
     {
-      name: "Vinayak & Engineering Council",
-      role: "Founder & Lead Architect",
-      bio: "Systems engineer and architect focusing on low-latency distributed networks, sovereign kernel telemetry, and enterprise software ecosystems.",
-      avatarInitials: "VN",
+      name: "Core Engineering Council",
+      role: "Founding Systems Architects",
+      bio: "Systems engineers and architects focusing on low-latency distributed networks, sovereign kernel telemetry, and enterprise software ecosystems.",
+      avatarInitials: "EC",
       badge: "Core Engineering",
     },
     {
