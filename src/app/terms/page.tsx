@@ -50,7 +50,7 @@ export default function TermsPage() {
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-500 dark:text-neutral-400 pt-2">
             <span>Last Updated: <strong className="text-slate-800 dark:text-neutral-200">{lastUpdated}</strong></span>
             <span>•</span>
-            <span>Entity: <strong className="text-slate-800 dark:text-neutral-200">NOXSOV Technologies Inc.</strong></span>
+            <span>Entity: <strong className="text-slate-800 dark:text-neutral-200">NOXSOV Pvt. Ltd. (Estb. 2026)</strong></span>
             <span>•</span>
             <span>Inquiries: <a href={`mailto:${contactEmail}`} className="text-cyan-600 dark:text-cyan-400 underline">{contactEmail}</a></span>
           </div>
@@ -137,7 +137,7 @@ export default function TermsPage() {
               <span>Intellectual Property</span>
             </h2>
             <p>
-              All software architectures, source code, neural/vision model weights, interface designs, logos, and trademarks (including &ldquo;NOXSOV&rdquo;, &ldquo;Kryptik by NOXSOV&rdquo;, &ldquo;NOXSOV Events&rdquo;, and &ldquo;Tax Incubator&rdquo;) remain the exclusive intellectual property of NOXSOV Technologies Inc.
+              All software architectures, source code, neural/vision model weights, interface designs, logos, and trademarks (including &ldquo;NOXSOV&rdquo;, &ldquo;Kryptik by NOXSOV&rdquo;, &ldquo;NOXSOV Events&rdquo;, and &ldquo;Tax Incubator&rdquo;) remain the exclusive intellectual property of NOXSOV Pvt. Ltd. (Estb. 2026).
             </p>
           </section>
 
@@ -175,7 +175,7 @@ export default function TermsPage() {
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500 dark:text-neutral-500">Corporate Headquarters:</span>
-                <span className="text-slate-900 dark:text-white">NOXSOV Technologies Inc.</span>
+                <span className="text-slate-900 dark:text-white">NOXSOV Pvt. Ltd. (Estb. 2026)</span>
               </div>
             </div>
           </section>

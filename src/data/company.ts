@@ -14,7 +14,9 @@ export interface TeamMember {
 
 export const COMPANY_INFO = {
   name: "NOXSOV",
-  fullName: "NOXSOV Technologies",
+  fullName: "NOXSOV Pvt. Ltd. (Estb. 2026)",
+  legalName: "NOXSOV Pvt. Ltd.",
+  establishedYear: "2026",
   tagline: "The Sovereign Enterprise Software Ecosystem",
   mission:
     "Engineering autonomous, mathematically rigorous, and sovereign software systems that empower mission-critical enterprises across security, finance, and operational IT.",

@@ -43,6 +43,9 @@ export function Footer() {
               NOXSOV is the sovereign enterprise software platform and digital store engineering mission-critical systems across cybersecurity, automated corporate finance, and high-concurrency IT operations.
             </p>
             <div className="pt-2 flex flex-wrap items-center gap-2.5">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-cyan-500/10 dark:bg-cyan-500/10 border border-cyan-500/20 text-cyan-700 dark:text-cyan-300 shadow-sm font-semibold">
+                <span>NOXSOV Pvt. Ltd. • Estb. 2026</span>
+              </div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08] text-slate-700 dark:text-neutral-300 shadow-sm">
                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" />
                 <span>Zero Telemetry Egress</span>
@@ -165,7 +168,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-slate-200 dark:border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-neutral-500">
           <div>
-            &copy; {currentYear} NOXSOV Technologies. All rights reserved. Every product tagged &ldquo;[Product] by NOXSOV&rdquo;.
+            &copy; {currentYear} NOXSOV Pvt. Ltd. (Estb. 2026). All rights reserved. Every product tagged &ldquo;[Product] by NOXSOV&rdquo;.
           </div>
           <div className="flex flex-wrap items-center gap-6">
             <Link href="/privacy" className="hover:text-slate-800 dark:hover:text-neutral-300 transition-colors">

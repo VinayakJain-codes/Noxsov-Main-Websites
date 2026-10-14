@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
           <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-500 dark:text-neutral-400 pt-2">
             <span>Last Updated: <strong className="text-slate-800 dark:text-neutral-200">{lastUpdated}</strong></span>
             <span>•</span>
-            <span>Data Fiduciary: <strong className="text-slate-800 dark:text-neutral-200">NOXSOV Technologies Inc.</strong></span>
+            <span>Data Fiduciary: <strong className="text-slate-800 dark:text-neutral-200">NOXSOV Pvt. Ltd. (Estb. 2026)</strong></span>
             <span>•</span>
             <span>Statutory Contact: <a href={`mailto:${contactEmail}`} className="text-cyan-600 dark:text-cyan-400 underline">{contactEmail}</a></span>
           </div>
@@ -95,7 +95,7 @@ export default function PrivacyPolicyPage() {
               <span>Identification of the Data Fiduciary</span>
             </h2>
             <p>
-              Under India&apos;s <strong>Digital Personal Data Protection Act, 2023 (&ldquo;DPDPA&rdquo;)</strong> and applicable international data sovereignty regulations, <strong>NOXSOV Technologies Inc.</strong> (&ldquo;NOXSOV&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) acts as the <strong>Data Fiduciary</strong> regarding personal data collected through this website, enterprise contact forms, and client engagement channels.
+              Under India&apos;s <strong>Digital Personal Data Protection Act, 2023 (&ldquo;DPDPA&rdquo;)</strong> and applicable international data sovereignty regulations, <strong>NOXSOV Pvt. Ltd. (Estb. 2026)</strong> (&ldquo;NOXSOV&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) acts as the <strong>Data Fiduciary</strong> regarding personal data collected through this website, enterprise contact forms, and client engagement channels.
             </p>
             <p>
               For enterprise deployments of our software (such as <strong>Kryptik</strong> multi-tenant guard management, <strong>NOXSOV Events</strong>, or <strong>Tax Incubator</strong>), the client enterprise operates as the primary Data Fiduciary regarding their own field operators, personnel, and end customers, while NOXSOV acts solely as a technical software provider or Data Processor under strict contractual tenant isolation.

@@ -7,7 +7,7 @@ import { ArrowRight, ChevronRight, Layers, Sparkles } from "lucide-react";
 export const metadata: Metadata = {
   title: "About NOXSOV — Mission, Engineering Charter & Leadership",
   description:
-    "Learn about NOXSOV Technologies: our mission, sovereign software principles, engineering council, and multi-phase roadmap.",
+    "Learn about NOXSOV Pvt. Ltd. (Estb. 2026): our mission, sovereign software principles, engineering council, and multi-phase roadmap.",
 };
 
 export default function AboutPage() {
@@ -32,7 +32,7 @@ export default function AboutPage() {
               <BrandLogo size="md" showTagline={false} clickable={false} />
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
                 <Sparkles className="w-3.5 h-3.5" />
-                <span>Engineering Charter & Mission</span>
+                <span>NOXSOV Pvt. Ltd. (Estb. 2026) • Engineering Charter & Mission</span>
               </div>
             </div>
 

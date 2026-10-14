@@ -241,7 +241,7 @@ NOXSOV features a custom **Adaptive Theme Architecture**:
 
 ## 📄 License & Intellectual Property
 
-Copyright © 2026 **NOXSOV Technologies Inc.** All rights reserved.  
+Copyright © 2026 **NOXSOV Pvt. Ltd. (Estb. 2026)**. All rights reserved.  
 All software architectures, product specifications, and documentation are proprietary to NOXSOV. Perpetual enterprise licenses are granted subject to individual Master Services Agreements (MSA).
 
 ---
