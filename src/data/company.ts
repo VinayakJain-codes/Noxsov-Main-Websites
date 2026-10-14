@@ -78,7 +78,8 @@ export const COMPANY_INFO = {
     },
   ],
   contact: {
-    salesEmail: "sales@noxsov.com",
+    supportEmail: "support@noxsov.com",
+    salesEmail: "support@noxsov.com",
     securityEmail: "security@noxsov.com",
     pressEmail: "press@noxsov.com",
     headquarters: "Global Sovereign Operations Hub",

@@ -58,7 +58,7 @@ export async function sendContactEmail(payload: ContactEmailPayload): Promise<Em
       message: payload.message,
       ticket_id: payload.ticketId || "N/A",
       timestamp: new Date().toISOString(),
-      to_email: process.env.NEXT_PUBLIC_CONTACT_TO_EMAIL || "sales@noxsov.com",
+      to_email: process.env.NEXT_PUBLIC_CONTACT_TO_EMAIL || "support@noxsov.com",
     };
 
     const res = await emailjs.send(serviceId, templateId, templateParams, {

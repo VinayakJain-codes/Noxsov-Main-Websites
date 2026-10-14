@@ -5,10 +5,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { CartProvider } from "@/context/CartContext";
-import { CartDrawer } from "@/components/store/CartDrawer";
-import { CheckoutModal } from "@/components/store/CheckoutModal";
-import { OrderReceiptModal } from "@/components/store/OrderReceiptModal";
 import { BackToTop } from "@/components/ui/BackToTop";
+import { CookieConsentBanner } from "@/components/cookies/CookieConsentBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -108,6 +106,7 @@ export default function RootLayout({
             <div className="flex-1 flex flex-col">{children}</div>
             <Footer />
             <BackToTop />
+            <CookieConsentBanner />
           </CartProvider>
         </ThemeProvider>
       </body>

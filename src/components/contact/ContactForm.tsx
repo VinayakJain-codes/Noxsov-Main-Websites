@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { PRODUCTS } from "@/data/products";
 import { sendContactEmail } from "@/lib/email";
 import { Send, CheckCircle2, ShieldCheck, Clock, Mail } from "lucide-react";
@@ -37,9 +38,17 @@ export function ContactForm() {
   const [ticketId, setTicketId] = useState("");
   const [emailStatus, setEmailStatus] = useState<"sent" | "unconfigured" | "failed" | null>(null);
   const [submitError, setSubmitError] = useState("");
+  // Terms & Conditions consent - strictly UNCHECKED by default as required by DPDPA / DPIIT
+  const [agreeToTerms, setAgreeToTerms] = useState(false);
+  const [termsValidationError, setTermsValidationError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!agreeToTerms) {
+      setTermsValidationError("Please review and agree to the Terms & Conditions and Privacy Policy before transmitting your inquiry.");
+      return;
+    }
+    setTermsValidationError("");
     setIsSubmitting(true);
     setSubmitError("");
 
@@ -145,6 +154,8 @@ export function ContactForm() {
             onClick={() => {
               setIsSubmitted(false);
               setEmailStatus(null);
+              setAgreeToTerms(false);
+              setTermsValidationError("");
               setFormData({
                 name: "",
                 email: "",
@@ -313,6 +324,42 @@ export function ContactForm() {
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-300 dark:border-white/[0.1] text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-neutral-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
         />
+      </div>
+
+      {/* Mandatory Terms & Conditions Checkbox - UNCHECKED BY DEFAULT */}
+      <div className={`p-4 rounded-2xl border transition-colors ${
+        termsValidationError
+          ? "border-red-500/50 bg-red-500/[0.05]"
+          : "border-slate-200 dark:border-white/[0.08] bg-slate-50/60 dark:bg-white/[0.02]"
+      }`}>
+        <label htmlFor="contact-terms-checkbox" className="flex items-start gap-3 cursor-pointer">
+          <input
+            id="contact-terms-checkbox"
+            type="checkbox"
+            checked={agreeToTerms}
+            onChange={(e) => {
+              setAgreeToTerms(e.target.checked);
+              if (e.target.checked) setTermsValidationError("");
+            }}
+            className="w-4 h-4 rounded text-cyan-500 focus:ring-cyan-500 shrink-0 mt-0.5 cursor-pointer accent-cyan-500"
+          />
+          <span className="text-xs text-slate-700 dark:text-neutral-300 leading-relaxed">
+            I confirm that I have reviewed the{" "}
+            <Link href="/terms" target="_blank" className="text-cyan-600 dark:text-cyan-400 font-semibold underline">
+              Terms & Conditions
+            </Link>{" "}
+            and{" "}
+            <Link href="/privacy" target="_blank" className="text-cyan-600 dark:text-cyan-400 font-semibold underline">
+              Privacy Policy
+            </Link>
+            . I provide affirmative consent under India&apos;s Digital Personal Data Protection Act, 2023 (DPDPA) for NOXSOV to process my inquiry.
+          </span>
+        </label>
+        {termsValidationError && (
+          <p className="text-xs text-red-500 mt-2 font-mono">
+            * {termsValidationError}
+          </p>
+        )}
       </div>
 
       {/* Security note & submit button */}

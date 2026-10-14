@@ -150,7 +150,7 @@ export function Footer() {
                 </Link>
               </li>
               <li className="pt-2 text-xs text-slate-500 dark:text-neutral-500">
-                Direct: <span className="text-slate-800 dark:text-neutral-300 font-medium">sales@noxsov.com</span>
+                Direct: <a href="mailto:support@noxsov.com" className="text-slate-800 dark:text-neutral-300 font-medium hover:underline">support@noxsov.com</a>
               </li>
               <li className="pt-3">
                 <div className="flex items-center gap-2">
@@ -167,11 +167,14 @@ export function Footer() {
           <div>
             &copy; {currentYear} NOXSOV Technologies. All rights reserved. Every product tagged &ldquo;[Product] by NOXSOV&rdquo;.
           </div>
-          <div className="flex items-center gap-6">
-            <Link href="/about" className="hover:text-slate-800 dark:hover:text-neutral-300 transition-colors">
-              Privacy & Sovereignty
+          <div className="flex flex-wrap items-center gap-6">
+            <Link href="/privacy" className="hover:text-slate-800 dark:hover:text-neutral-300 transition-colors">
+              Privacy Policy (DPDPA)
             </Link>
-            <Link href="/about" className="hover:text-slate-800 dark:hover:text-neutral-300 transition-colors">
+            <Link href="/cookies" className="hover:text-slate-800 dark:hover:text-neutral-300 transition-colors">
+              Cookie Policy & Log
+            </Link>
+            <Link href="/terms" className="hover:text-slate-800 dark:hover:text-neutral-300 transition-colors">
               Terms of Service
             </Link>
             <Link href="/contact" className="hover:text-slate-800 dark:hover:text-neutral-300 transition-colors">

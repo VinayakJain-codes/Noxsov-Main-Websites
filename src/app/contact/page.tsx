@@ -52,15 +52,15 @@ export default function ContactPage() {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <div className="text-xs font-mono text-slate-500 dark:text-neutral-400 uppercase">Enterprise Sales</div>
+                  <div className="text-xs font-mono text-slate-500 dark:text-neutral-400 uppercase">Enterprise Support & Procurement</div>
                   <a
-                    href="mailto:sales@noxsov.com"
+                    href="mailto:support@noxsov.com"
                     className="text-sm sm:text-base font-bold text-slate-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors"
                   >
-                    {COMPANY_INFO.contact.salesEmail}
+                    support@noxsov.com
                   </a>
                   <p className="text-xs text-slate-500 dark:text-neutral-400 mt-0.5">
-                    For commercial pricing, custom SLAs, and procurement tenders.
+                    For commercial pricing, custom SLAs, DPDPA inquiries, and technical support.
                   </p>
                 </div>
               </div>
