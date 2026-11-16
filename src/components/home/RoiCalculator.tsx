@@ -39,7 +39,7 @@ export function RoiCalculator() {
             <Calculator className="w-3.5 h-3.5" />
             <span>Economic Sovereignty & TCO</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight">
             Stop Paying the Per-Seat SaaS Tax
           </h2>
           <p className="text-sm text-slate-600 dark:text-neutral-300 leading-relaxed">
@@ -47,7 +47,7 @@ export function RoiCalculator() {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto glass-panel rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-white/[0.1] shadow-2xl">
+        <div className="max-w-4xl mx-auto surface-panel rounded-xl p-6 sm:p-10 border border-slate-200 dark:border-white/[0.1] shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Left Config Sliders */}
             <div className="lg:col-span-7 space-y-6">
@@ -71,7 +71,7 @@ export function RoiCalculator() {
                   onChange={(e) => setEndpoints(Number(e.target.value))}
                   className="w-full h-2 bg-slate-200 dark:bg-white/[0.1] rounded-lg appearance-none cursor-pointer accent-cyan-500"
                 />
-                <div className="flex justify-between text-[10px] font-mono text-slate-400 dark:text-neutral-500">
+                <div className="flex justify-between text-xs font-mono text-slate-400 dark:text-neutral-500">
                   <span>25 nodes</span>
                   <span>500 nodes</span>
                   <span>1,500 nodes</span>
@@ -99,7 +99,7 @@ export function RoiCalculator() {
                   onChange={(e) => setLegacyPerSeat(Number(e.target.value))}
                   className="w-full h-2 bg-slate-200 dark:bg-white/[0.1] rounded-lg appearance-none cursor-pointer accent-cyan-500"
                 />
-                <div className="flex justify-between text-[10px] font-mono text-slate-400 dark:text-neutral-500">
+                <div className="flex justify-between text-xs font-mono text-slate-400 dark:text-neutral-500">
                   <span>$30/mo (Basic)</span>
                   <span>$85/mo (Industry Avg)</span>
                   <span>$200/mo (Enterprise)</span>
@@ -128,12 +128,12 @@ export function RoiCalculator() {
             </div>
 
             {/* Right Output Panel */}
-            <div className="lg:col-span-5 rounded-2xl p-6 bg-slate-100/90 dark:bg-[#080d16] border border-slate-200 dark:border-cyan-500/30 flex flex-col justify-between space-y-6">
+            <div className="lg:col-span-5 rounded-xl p-6 bg-slate-100/90 dark:bg-[#080d16] border border-slate-200 dark:border-cyan-500/30 flex flex-col justify-between space-y-6">
               <div>
-                <div className="text-[11px] font-mono uppercase tracking-wider text-slate-500 dark:text-neutral-400 mb-1">
+                <div className="text-xs font-medium text-slate-500 dark:text-neutral-400 mb-1">
                   Estimated Annual Capital Savings
                 </div>
-                <div className="text-3xl sm:text-4xl font-extrabold text-emerald-600 dark:text-emerald-400 font-mono tracking-tight flex items-baseline gap-1">
+                <div className="text-3xl sm:text-4xl font-semibold text-emerald-600 dark:text-emerald-400 font-mono tracking-tight flex items-baseline gap-1">
                   <span>${formatNumber(annualSavings)}</span>
                   <span className="text-xs font-sans text-slate-500 dark:text-neutral-400 font-normal">
                     / year
@@ -162,7 +162,7 @@ export function RoiCalculator() {
 
               <Link
                 href="/contact"
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs text-black bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 shadow-md shadow-cyan-500/20 transition-all active:scale-[0.98]"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-semibold text-xs text-black bg-cyan-400 hover:bg-cyan-300 shadow-sm  transition-colors"
               >
                 <span>Request Custom TCO Breakdown</span>
                 <ArrowRight className="w-3.5 h-3.5" />

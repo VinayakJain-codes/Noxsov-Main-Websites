@@ -10,7 +10,7 @@ interface PricingSectionProps {
   pricing: PricingTier[];
 }
 
-export function PricingSection({ productName, productSlug, pricing }: PricingSectionProps) {
+export function PricingSection({ productSlug, pricing }: PricingSectionProps) {
   return (
     <section id="deployment-tiers" className="py-20 border-t border-slate-200 dark:border-white/[0.08] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -19,7 +19,7 @@ export function PricingSection({ productName, productSlug, pricing }: PricingSec
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>Commercial Deployment Options</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight">
             Tailored Enterprise Deployment. Zero Per-User SaaS Taxes.
           </h2>
           <p className="text-sm text-slate-600 dark:text-neutral-300 leading-relaxed">
@@ -35,14 +35,14 @@ export function PricingSection({ productName, productSlug, pricing }: PricingSec
             return (
               <div
                 key={idx}
-                className={`glass-panel rounded-3xl p-8 flex flex-col justify-between relative transition-all duration-300 ${
+                className={`surface-panel rounded-xl p-8 flex flex-col justify-between relative transition-all duration-300 ${
                   isPopular
-                    ? "border-cyan-500/50 shadow-2xl shadow-cyan-500/10 dark:shadow-cyan-950/50 bg-white/95 dark:bg-[#0d1424]/90 scale-105 z-10"
+                    ? "border-cyan-500/50 shadow-sm  dark: bg-white/95 dark:bg-[#0d1424]/90 scale-105 z-10"
                     : "border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/[0.18]"
                 }`}
               >
                 {isPopular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-cyan-400 text-black text-[11px] font-bold uppercase tracking-wider shadow-md shadow-cyan-400/30">
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-cyan-400 text-black text-xs font-bold uppercase tracking-wider shadow-sm ">
                     Recommended
                   </div>
                 )}
@@ -55,7 +55,7 @@ export function PricingSection({ productName, productSlug, pricing }: PricingSec
 
                   <div className="border-y border-slate-200 dark:border-white/[0.06] py-5">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-neutral-400">
+                      <span className="text-xs font-medium text-slate-500 dark:text-neutral-400">
                         Commercial Terms
                       </span>
                       <span className="text-xs font-mono px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 font-semibold">
@@ -65,13 +65,13 @@ export function PricingSection({ productName, productSlug, pricing }: PricingSec
                     <div className="text-lg font-bold text-slate-900 dark:text-white mt-1">
                       Inquire for Fleet Pricing
                     </div>
-                    <div className="text-[11px] text-slate-500 dark:text-neutral-400 font-mono mt-0.5">
+                    <div className="text-xs text-slate-500 dark:text-neutral-400 font-mono mt-0.5">
                       Tailored to active nodes, sites & SLAs
                     </div>
                   </div>
 
                   <div className="space-y-3">
-                    <div className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-neutral-400">
+                    <div className="text-xs font-medium text-slate-500 dark:text-neutral-400">
                       Included Capabilities & Scopes:
                     </div>
                     <ul className="space-y-2.5 text-xs text-slate-700 dark:text-neutral-300">
@@ -90,8 +90,8 @@ export function PricingSection({ productName, productSlug, pricing }: PricingSec
                     href={`/contact?product=${productSlug}&tier=${encodeURIComponent(tier.name)}`}
                     className={`w-full inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl text-xs font-semibold transition-all ${
                       isPopular
-                        ? "bg-cyan-400 hover:bg-cyan-300 text-black shadow-lg shadow-cyan-500/25 active:scale-[0.98]"
-                        : "bg-slate-900 text-white dark:bg-white dark:text-black hover:opacity-90 shadow-md"
+                        ? "bg-cyan-400 hover:bg-cyan-300 text-black shadow-sm  "
+                        : "bg-slate-900 text-white dark:bg-white dark:text-black hover:opacity-90 shadow-sm"
                     }`}
                   >
                     <Mail className="w-3.5 h-3.5" />

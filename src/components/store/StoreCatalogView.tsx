@@ -60,14 +60,15 @@ export function StoreCatalogView() {
   return (
     <div className="space-y-8">
       {/* Search & Filter Bar */}
-      <div className="glass-panel p-4 sm:p-6 rounded-3xl border border-slate-200 dark:border-white/[0.08] shadow-lg space-y-4">
+      <div className="surface-panel p-4 sm:p-6 rounded-xl border border-slate-200 dark:border-white/[0.08] shadow-sm space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
           {/* Search Input */}
           <div className="md:col-span-6 relative">
             <Search className="w-4 h-4 absolute left-3.5 top-3.5 text-slate-400 dark:text-neutral-500" />
             <input
-              type="text"
-              placeholder="Search software products, eBPF telemetry, ledgers, turnstiles..."
+              aria-label="Search products"
+              type="search"
+              placeholder="Search products or capabilities"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-10 pr-4 py-2.5 text-xs rounded-xl border border-slate-200 dark:border-white/[0.1] bg-white dark:bg-white/[0.03] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-neutral-500 focus:outline-none focus:border-cyan-500 transition-colors"
@@ -77,6 +78,7 @@ export function StoreCatalogView() {
           {/* Status Dropdown */}
           <div className="md:col-span-3">
             <select
+              aria-label="Release status"
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
               className="w-full px-3 py-2.5 text-xs rounded-xl border border-slate-200 dark:border-white/[0.1] bg-white dark:bg-white/[0.03] text-slate-900 dark:text-white focus:outline-none focus:border-cyan-500"
@@ -91,8 +93,9 @@ export function StoreCatalogView() {
           {/* Sort Dropdown */}
           <div className="md:col-span-3">
             <select
+              aria-label="Sort products"
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as any)}
+              onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
               className="w-full px-3 py-2.5 text-xs rounded-xl border border-slate-200 dark:border-white/[0.1] bg-white dark:bg-white/[0.03] text-slate-900 dark:text-white focus:outline-none focus:border-cyan-500"
             >
               <option value="featured">Sort by: Featured</option>
@@ -111,10 +114,11 @@ export function StoreCatalogView() {
               <button
                 key={cat.id}
                 type="button"
+                aria-pressed={isSelected}
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all ${
                   isSelected
-                    ? "bg-cyan-500 text-black shadow-md shadow-cyan-500/25"
+                    ? "bg-cyan-500 text-black shadow-sm "
                     : "bg-slate-100 hover:bg-slate-200 dark:bg-white/[0.03] dark:hover:bg-white/[0.08] text-slate-700 dark:text-neutral-300 border border-slate-200 dark:border-white/[0.06]"
                 }`}
               >
@@ -130,14 +134,14 @@ export function StoreCatalogView() {
       <div className="flex items-center justify-between px-2 text-xs text-slate-500 dark:text-neutral-400 font-mono">
         <div className="flex items-center gap-2">
           <Sparkles className="w-3.5 h-3.5 text-cyan-500" />
-          <span>Showing {filteredProducts.length} sovereign software systems</span>
+          <span>{filteredProducts.length} {filteredProducts.length === 1 ? "product" : "products"}</span>
         </div>
-        <span>100% Air-Gapped & Enclave Compatible</span>
+
       </div>
 
       {/* Product Grid */}
       {filteredProducts.length === 0 ? (
-        <div className="glass-panel p-16 rounded-3xl border border-slate-200 dark:border-white/[0.08] text-center space-y-4">
+        <div className="surface-panel p-16 rounded-xl border border-slate-200 dark:border-white/[0.08] text-center space-y-4">
           <div className="w-16 h-16 rounded-full bg-slate-100 dark:bg-white/[0.03] mx-auto flex items-center justify-center text-slate-400">
             <SlidersHorizontal className="w-8 h-8" />
           </div>

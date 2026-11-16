@@ -1,6 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  async headers() {
+    return [{
+      source: "/api/referral/:path*",
+      headers: [{ key: "Cache-Control", value: "private, no-store" }],
+    }];
+  },
   async redirects() {
     return [
       {

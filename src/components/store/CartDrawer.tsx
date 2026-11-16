@@ -43,7 +43,7 @@ export function CartDrawer() {
       />
 
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-white dark:bg-[#080d17] border-l border-slate-200 dark:border-white/[0.1] shadow-2xl flex flex-col">
+        <div className="w-screen max-w-md bg-white dark:bg-[#080d17] border-l border-slate-200 dark:border-white/[0.1] shadow-sm flex flex-col">
           {/* Header */}
           <div className="p-5 border-b border-slate-200 dark:border-white/[0.08] flex items-center justify-between">
             <div className="flex items-center gap-2.5">
@@ -95,7 +95,7 @@ export function CartDrawer() {
               items.map((item) => (
                 <div
                   key={item.id}
-                  className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-3 transition-colors hover:border-cyan-500/30"
+                  className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-3 transition-colors hover:border-cyan-500/30"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div>
@@ -103,11 +103,11 @@ export function CartDrawer() {
                         {item.productName}
                       </h4>
                       <div className="flex items-center gap-2 mt-0.5">
-                        <span className="text-[11px] font-medium text-cyan-600 dark:text-cyan-400">
+                        <span className="text-xs font-medium text-cyan-600 dark:text-cyan-400">
                           {item.tierName}
                         </span>
                         <span className="text-slate-300 dark:text-neutral-600">•</span>
-                        <span className="text-[10px] font-mono uppercase px-1.5 py-0.5 rounded bg-slate-200/70 dark:bg-white/[0.06] text-slate-700 dark:text-neutral-300">
+                        <span className="text-xs font-mono uppercase px-1.5 py-0.5 rounded bg-slate-200/70 dark:bg-white/[0.06] text-slate-700 dark:text-neutral-300">
                           {item.billingCycle === "annual" ? "Annual License" : "Monthly"}
                         </span>
                       </div>
@@ -124,7 +124,7 @@ export function CartDrawer() {
                   </div>
 
                   {item.maxNodes && (
-                    <div className="text-[11px] text-slate-500 dark:text-neutral-400 flex items-center gap-1.5">
+                    <div className="text-xs text-slate-500 dark:text-neutral-400 flex items-center gap-1.5">
                       <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
                       <span>{item.maxNodes}</span>
                     </div>
@@ -159,7 +159,7 @@ export function CartDrawer() {
                       <div className="text-sm font-bold font-mono text-slate-900 dark:text-white">
                         ₹{(item.pricePerUnit * item.quantity).toLocaleString("en-IN")}
                       </div>
-                      <div className="text-[10px] text-slate-400 dark:text-neutral-500">
+                      <div className="text-xs text-slate-400 dark:text-neutral-500">
                         ₹{item.pricePerUnit.toLocaleString("en-IN")} / license
                       </div>
                     </div>
@@ -179,7 +179,7 @@ export function CartDrawer() {
                 </span>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-[11px] text-cyan-800 dark:text-cyan-300 flex items-center gap-2">
+              <div className="p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-xs text-cyan-800 dark:text-cyan-300 flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-cyan-500 shrink-0" />
                 <span>Instant cryptographically signed license keys issued upon checkout.</span>
               </div>
@@ -188,7 +188,7 @@ export function CartDrawer() {
                 <button
                   type="button"
                   onClick={handleCheckoutClick}
-                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-xs text-black bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 shadow-lg shadow-cyan-500/25 active:scale-[0.99] transition-all"
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-semibold text-xs text-black bg-cyan-400 hover:bg-cyan-300 shadow-sm  active:scale-[0.99] transition-all"
                 >
                   <span>Proceed to Sovereign Checkout</span>
                   <ArrowRight className="w-4 h-4" />
@@ -197,7 +197,7 @@ export function CartDrawer() {
                 <button
                   type="button"
                   onClick={clearCart}
-                  className="w-full py-2 text-[11px] text-slate-500 dark:text-neutral-400 hover:text-slate-800 dark:hover:text-white transition-colors"
+                  className="w-full py-2 text-xs text-slate-500 dark:text-neutral-400 hover:text-slate-800 dark:hover:text-white transition-colors"
                 >
                   Clear Cart
                 </button>

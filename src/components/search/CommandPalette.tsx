@@ -14,10 +14,13 @@ import {
   ArrowRight,
   Sun,
   Moon,
-  Laptop,
+
   Building,
   Mail,
   Zap,
+  UserCheck,
+  PlusCircle,
+  FileText,
 } from "lucide-react";
 
 interface CommandPaletteProps {
@@ -76,6 +79,34 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
 
   const staticActions = [
     {
+      id: "action-submit-referral",
+      title: "Submit New Client Referral Opportunity",
+      category: "Referral Partner",
+      icon: PlusCircle,
+      action: () => navigateTo("/partner/referrals/new"),
+    },
+    {
+      id: "action-partner-dashboard",
+      title: "Referral Partner Portal Dashboard",
+      category: "Referral Partner",
+      icon: UserCheck,
+      action: () => navigateTo("/partner/dashboard"),
+    },
+    {
+      id: "action-admin-referrals",
+      title: "Agency Referrals & Commission Governance Console",
+      category: "Admin Console",
+      icon: FileText,
+      action: () => navigateTo("/admin/referrals"),
+    },
+    {
+      id: "action-commissions",
+      title: "Commission Accrual & Payout Ledger",
+      category: "Referral Partner",
+      icon: Coins,
+      action: () => navigateTo("/partner/commissions"),
+    },
+    {
       id: "action-briefing",
       title: "Schedule Architecture Briefing",
       category: "Quick Actions",
@@ -111,10 +142,10 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       />
 
       {/* Palette Modal */}
-      <div className="relative w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden
+      <div className="relative w-full max-w-2xl rounded-xl shadow-sm overflow-hidden
         bg-white border border-slate-200 text-slate-900
         dark:bg-[#0c121e] dark:border-white/[0.12] dark:text-neutral-100 z-10 animate-in fade-in zoom-in-95 duration-150">
-        
+
         {/* Search Input Bar */}
         <div className="flex items-center px-4 py-3.5 border-b border-slate-200 dark:border-white/[0.08]">
           <Search className="w-5 h-5 text-cyan-500 mr-3 flex-shrink-0" />
@@ -136,7 +167,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
               <X className="w-4 h-4" />
             </button>
           ) : (
-            <kbd className="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono text-slate-400 dark:text-neutral-500 bg-slate-100 dark:bg-white/[0.06] rounded border border-slate-200 dark:border-white/[0.08]">
+            <kbd className="hidden sm:inline-block px-2 py-0.5 text-xs font-mono text-slate-400 dark:text-neutral-500 bg-slate-100 dark:bg-white/[0.06] rounded border border-slate-200 dark:border-white/[0.08]">
               ESC
             </kbd>
           )}
@@ -147,7 +178,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
           {/* Products Group */}
           {filteredProducts.length > 0 && (
             <div>
-              <div className="px-3 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-400 dark:text-neutral-500">
+              <div className="px-3 py-1 text-xs font-mono font-semibold uppercase tracking-wider text-slate-400 dark:text-neutral-500">
                 Products by NOXSOV
               </div>
               <div className="space-y-1 mt-1">
@@ -170,7 +201,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
                           <span className="text-sm font-semibold text-slate-900 dark:text-white group-hover:text-cyan-500 transition-colors">
                             {p.name}
                           </span>
-                          <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-slate-200 dark:bg-white/[0.08] text-slate-600 dark:text-neutral-400">
+                          <span className="text-xs font-mono px-1.5 py-0.2 rounded bg-slate-200 dark:bg-white/[0.08] text-slate-600 dark:text-neutral-400">
                             {p.status}
                           </span>
                         </div>
@@ -189,7 +220,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
           {/* Categories Group */}
           {filteredCategories.length > 0 && (
             <div>
-              <div className="px-3 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-400 dark:text-neutral-500">
+              <div className="px-3 py-1 text-xs font-mono font-semibold uppercase tracking-wider text-slate-400 dark:text-neutral-500">
                 Domain Verticals
               </div>
               <div className="space-y-1 mt-1">
@@ -224,7 +255,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
           {/* Actions Group */}
           {staticActions.length > 0 && (
             <div>
-              <div className="px-3 py-1 text-[11px] font-mono font-semibold uppercase tracking-wider text-slate-400 dark:text-neutral-500">
+              <div className="px-3 py-1 text-xs font-mono font-semibold uppercase tracking-wider text-slate-400 dark:text-neutral-500">
                 Actions & Navigation
               </div>
               <div className="space-y-1 mt-1">
@@ -269,7 +300,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
         </div>
 
         {/* Footer info bar */}
-        <div className="px-4 py-2.5 bg-slate-50 dark:bg-black/40 border-t border-slate-200 dark:border-white/[0.06] flex items-center justify-between text-[11px] text-slate-500 dark:text-neutral-400 font-mono">
+        <div className="px-4 py-2.5 bg-slate-50 dark:bg-black/40 border-t border-slate-200 dark:border-white/[0.06] flex items-center justify-between text-xs text-slate-500 dark:text-neutral-400 font-mono">
           <div className="flex items-center gap-3">
             <span>↑↓ to navigate</span>
             <span>↵ to select</span>

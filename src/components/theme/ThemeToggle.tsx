@@ -1,8 +1,10 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useSyncExternalStore } from "react";
 import { useTheme } from "@/components/theme/ThemeProvider";
 import { Sun, Moon, Laptop, Check } from "lucide-react";
+
+const subscribeToMount = () => () => {};
 
 interface ThemeToggleProps {
   showDropdown?: boolean;
@@ -12,12 +14,9 @@ interface ThemeToggleProps {
 export function ThemeToggle({ showDropdown = false, className = "" }: ThemeToggleProps) {
   const { theme, resolvedTheme, setTheme, toggleTheme } = useTheme();
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(subscribeToMount, () => true, () => false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -47,7 +46,7 @@ export function ThemeToggle({ showDropdown = false, className = "" }: ThemeToggl
         id="theme-toggle-btn"
         type="button"
         onClick={toggleTheme}
-        className={`relative p-2 rounded-lg cursor-pointer transition-all duration-200 
+        className={`relative p-2 rounded-lg cursor-pointer transition-all duration-200
           bg-slate-200/60 hover:bg-slate-300/80 text-slate-800 border border-slate-300/60
           dark:bg-white/[0.05] dark:hover:bg-white/[0.1] dark:text-neutral-200 dark:border-white/[0.1]
           focus:outline-none focus:ring-2 focus:ring-cyan-500/50 shadow-sm ${className}`}
@@ -92,11 +91,11 @@ export function ThemeToggle({ showDropdown = false, className = "" }: ThemeToggl
         ) : (
           <Sun className="w-3.5 h-3.5 text-amber-500" />
         )}
-        <span className="capitalize font-mono text-[11px]">{theme}</span>
+        <span className="capitalize font-mono text-xs">{theme}</span>
       </button>
 
       {dropdownOpen && (
-        <div className="absolute right-0 mt-1.5 w-36 rounded-xl p-1 shadow-xl z-50
+        <div className="absolute right-0 mt-1.5 w-36 rounded-xl p-1 shadow-sm z-50
           bg-white/95 border border-slate-200 text-slate-800 backdrop-blur-xl
           dark:bg-[#0b101b]/95 dark:border-white/[0.1] dark:text-neutral-200">
           <button

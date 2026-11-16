@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -8,14 +8,18 @@ import { CartProvider } from "@/context/CartContext";
 import { BackToTop } from "@/components/ui/BackToTop";
 import { CookieConsentBanner } from "@/components/cookies/CookieConsentBanner";
 
-const geistSans = Geist({
+const geistSans = localFont({
+  src: "./fonts/geist-latin.woff2",
+  display: "swap",
+  weight: "100 900",
   variable: "--font-geist-sans",
-  subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: "./fonts/geist-mono-latin.woff2",
+  display: "swap",
+  weight: "100 900",
   variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -102,8 +106,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-slate-50 dark:bg-[#06090e] text-slate-900 dark:text-neutral-100 selection:bg-cyan-500/30 selection:text-cyan-900 dark:selection:text-cyan-200">
         <ThemeProvider>
           <CartProvider>
+            <a className="skip-link" href="#page-content">Skip to content</a>
             <Navbar />
-            <div className="flex-1 flex flex-col">{children}</div>
+            <div id="page-content" tabIndex={-1} className="flex-1 flex flex-col">{children}</div>
             <Footer />
             <BackToTop />
             <CookieConsentBanner />

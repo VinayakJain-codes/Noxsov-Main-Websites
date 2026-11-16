@@ -33,7 +33,7 @@ export default function PrivacyPolicyPage() {
   return (
     <main className="flex-1 pt-32 pb-24">
       {/* Background ambient lighting */}
-      <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-cyan-500/10 via-emerald-500/10 to-blue-500/15 rounded-full blur-[140px] pointer-events-none -z-10" />
+
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
         {/* Header */}
@@ -43,7 +43,7 @@ export default function PrivacyPolicyPage() {
             <span>Digital Personal Data Protection Act, 2023 (DPDPA) Compliant</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-slate-900 dark:text-white">
             Privacy Policy & Sovereign Data Governance
           </h1>
 
@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
         </div>
 
         {/* Quick Highlights Summary Card */}
-        <div className="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/30 bg-gradient-to-br from-cyan-500/[0.04] to-transparent shadow-xl space-y-4">
+        <div className="surface-panel rounded-xl p-6 sm:p-8 border border-cyan-500/30 bg-gradient-to-br from-cyan-500/[0.04] to-transparent shadow-sm space-y-4">
           <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2 font-mono">
             <Lock className="w-4 h-4 text-cyan-500" />
             <span>EXECUTIVE PRIVACY & DPDPA COMMITMENTS</span>
@@ -159,7 +159,7 @@ export default function PrivacyPolicyPage() {
               As a Data Principal whose digital personal data is processed by NOXSOV, you possess enforceable statutory rights under Chapter III of the DPDPA:
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1">
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1">
                 <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-xs">
                   <UserCheck className="w-3.5 h-3.5 text-cyan-500" />
                   <span>Right to Access (Section 11)</span>
@@ -169,7 +169,7 @@ export default function PrivacyPolicyPage() {
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1">
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1">
                 <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-xs">
                   <FileCheck2 className="w-3.5 h-3.5 text-emerald-500" />
                   <span>Right to Correction & Erasure (Section 12)</span>
@@ -179,7 +179,7 @@ export default function PrivacyPolicyPage() {
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1">
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1">
                 <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-xs">
                   <AlertCircle className="w-3.5 h-3.5 text-amber-500" />
                   <span>Right of Grievance Redressal (Section 13)</span>
@@ -189,7 +189,7 @@ export default function PrivacyPolicyPage() {
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1">
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1">
                 <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5 text-xs">
                   <Server className="w-3.5 h-3.5 text-indigo-500" />
                   <span>Right to Nominate (Section 14)</span>
@@ -219,9 +219,9 @@ export default function PrivacyPolicyPage() {
           </section>
 
           {/* Section 6: Grievance Redressal Officer */}
-          <section className="space-y-4 p-6 sm:p-8 rounded-3xl glass-panel border border-cyan-500/30 bg-slate-100/50 dark:bg-[#070b14]/50">
+          <section className="space-y-4 p-6 sm:p-8 rounded-xl surface-panel border border-cyan-500/30 bg-slate-100/50 dark:bg-[#070b14]/50">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0">
                 <Mail className="w-5 h-5" />
               </div>
               <div>
@@ -259,7 +259,7 @@ export default function PrivacyPolicyPage() {
               </div>
             </div>
 
-            <p className="text-[11px] text-slate-500 dark:text-neutral-400">
+            <p className="text-xs text-slate-500 dark:text-neutral-400">
               If your grievance is not resolved satisfactorily, you retain the statutory right to escalate your complaint to the <strong>Data Protection Board of India</strong> as constituted under Section 18 of the DPDPA.
             </p>
           </section>

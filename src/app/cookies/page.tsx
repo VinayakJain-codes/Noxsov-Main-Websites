@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   getStoredConsent,
-  recordConsent,
+
   withdrawAllConsent,
   ConsentAuditRecord,
   SUPPORT_EMAIL,
@@ -17,15 +17,15 @@ import {
   Download,
   RotateCcw,
   Sliders,
-  ExternalLink,
+
   FileText,
   Mail,
-  Lock,
+
 } from "lucide-react";
 
 export default function CookiesPage() {
   const [record, setRecord] = useState<ConsentAuditRecord | null>(null);
-  const [allLogs, setAllLogs] = useState<any[]>([]);
+  const [allLogs, setAllLogs] = useState<(ConsentAuditRecord & { ipHash?: string })[]>([]);
   const [isLoadingLogs, setIsLoadingLogs] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
 
@@ -50,6 +50,8 @@ export default function CookiesPage() {
   };
 
   useEffect(() => {
+    // Browser storage is unavailable during SSR; hydrate once after mounting.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     refreshConsent();
     fetchServerLogs();
   }, []);
@@ -81,7 +83,7 @@ export default function CookiesPage() {
   return (
     <main className="flex-1 pt-32 pb-24">
       {/* Background ambient lighting */}
-      <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-cyan-500/10 via-emerald-500/10 to-blue-500/15 rounded-full blur-[140px] pointer-events-none -z-10" />
+
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {/* Header */}
@@ -91,7 +93,7 @@ export default function CookiesPage() {
             <span>DPDPA 2023 & DPIIT Compliance Framework</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-slate-900 dark:text-white">
             Cookie Policy & Consent Audit Log
           </h1>
 
@@ -107,10 +109,10 @@ export default function CookiesPage() {
         </div>
 
         {/* Live User Consent Management Box */}
-        <section aria-labelledby="live-consent-heading" className="glass-panel rounded-3xl p-6 sm:p-10 border border-cyan-500/30 bg-gradient-to-br from-cyan-500/[0.04] to-transparent shadow-2xl space-y-6">
+        <section aria-labelledby="live-consent-heading" className="surface-panel rounded-xl p-6 sm:p-10 border border-cyan-500/30 bg-gradient-to-br from-cyan-500/[0.04] to-transparent shadow-sm space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200 dark:border-white/[0.08]">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <div>
@@ -127,7 +129,7 @@ export default function CookiesPage() {
               <button
                 type="button"
                 onClick={triggerBannerModal}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-cyan-400 hover:bg-cyan-300 text-black shadow-md shadow-cyan-500/20 transition-all"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-cyan-400 hover:bg-cyan-300 text-black shadow-sm  transition-all"
               >
                 <Sliders className="w-3.5 h-3.5" />
                 <span>Adjust Preferences</span>
@@ -154,8 +156,8 @@ export default function CookiesPage() {
 
           {record ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="p-4 rounded-2xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1">
-                <span className="text-[11px] font-mono text-slate-400 dark:text-neutral-500">
+              <div className="p-4 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1">
+                <span className="text-xs font-mono text-slate-400 dark:text-neutral-500">
                   Consent Audit ID
                 </span>
                 <div className="text-sm font-bold font-mono text-cyan-600 dark:text-cyan-400">
@@ -163,8 +165,8 @@ export default function CookiesPage() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1">
-                <span className="text-[11px] font-mono text-slate-400 dark:text-neutral-500">
+              <div className="p-4 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1">
+                <span className="text-xs font-mono text-slate-400 dark:text-neutral-500">
                   Timestamp (UTC)
                 </span>
                 <div className="text-xs font-semibold text-slate-900 dark:text-white">
@@ -172,8 +174,8 @@ export default function CookiesPage() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1">
-                <span className="text-[11px] font-mono text-slate-400 dark:text-neutral-500">
+              <div className="p-4 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-1">
+                <span className="text-xs font-mono text-slate-400 dark:text-neutral-500">
                   Active Status
                 </span>
                 <div className="text-xs font-semibold capitalize flex items-center gap-1.5">
@@ -186,9 +188,9 @@ export default function CookiesPage() {
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] flex items-center justify-between">
+              <div className="p-4 rounded-xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] flex items-center justify-between">
                 <div className="space-y-0.5">
-                  <span className="text-[11px] font-mono text-slate-400 dark:text-neutral-500">
+                  <span className="text-xs font-mono text-slate-400 dark:text-neutral-500">
                     Audit Certificate
                   </span>
                   <div className="text-xs font-semibold text-slate-900 dark:text-white">
@@ -230,7 +232,7 @@ export default function CookiesPage() {
             </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-slate-200 dark:border-white/[0.08] shadow-sm">
+          <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-white/[0.08] shadow-sm">
             <table className="w-full text-left text-xs divide-y divide-slate-200 dark:divide-white/[0.08]">
               <thead className="bg-slate-50 dark:bg-white/[0.03] font-mono uppercase text-slate-500 dark:text-neutral-400">
                 <tr>
@@ -300,7 +302,7 @@ export default function CookiesPage() {
                 <h2 id="consent-audit-heading" className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
                   Verifiable Consent Audit Log (Server Repository)
                 </h2>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-700 dark:text-cyan-400 font-bold">
+                <span className="text-xs font-mono px-2 py-0.5 rounded bg-cyan-500/15 text-cyan-700 dark:text-cyan-400 font-bold">
                   DPIIT Audit Trail
                 </span>
               </div>
@@ -320,8 +322,8 @@ export default function CookiesPage() {
             </button>
           </div>
 
-          <div className="rounded-2xl border border-slate-200 dark:border-white/[0.08] bg-slate-950 p-4 font-mono text-xs text-slate-300 space-y-3 overflow-x-auto shadow-xl">
-            <div className="flex items-center justify-between pb-2 border-b border-white/[0.08] text-slate-400 text-[11px]">
+          <div className="rounded-xl border border-slate-200 dark:border-white/[0.08] bg-slate-950 p-4 font-mono text-xs text-slate-300 space-y-3 overflow-x-auto shadow-sm">
+            <div className="flex items-center justify-between pb-2 border-b border-white/[0.08] text-slate-400 text-xs">
               <span className="flex items-center gap-1.5 text-cyan-400 font-bold">
                 <FileText className="w-3.5 h-3.5" />
                 <span>DATA/CONSENT_LOGS.JSON (LIVE AUDIT STREAM)</span>
@@ -343,19 +345,19 @@ export default function CookiesPage() {
                     <div className="space-y-0.5">
                       <div className="flex items-center gap-2">
                         <span className="text-cyan-400 font-bold">{log.consentId}</span>
-                        <span className="text-[10px] px-1.5 py-0.2 rounded bg-white/[0.08] text-slate-300">
+                        <span className="text-xs px-1.5 py-0.2 rounded bg-white/[0.08] text-slate-300">
                           {log.status}
                         </span>
-                        <span className="text-slate-500 text-[10px] truncate max-w-[140px]">
+                        <span className="text-slate-500 text-xs truncate max-w-[140px]">
                           IP Hash: {log.ipHash}
                         </span>
                       </div>
-                      <div className="text-[11px] text-slate-400">
+                      <div className="text-xs text-slate-400">
                         Categories: Analytics={String(log.preferences?.analytics)}, Preferences={String(log.preferences?.preferences)}, Marketing={String(log.preferences?.marketing)}
                       </div>
                     </div>
 
-                    <div className="text-[11px] text-slate-500 shrink-0">
+                    <div className="text-xs text-slate-500 shrink-0">
                       {new Date(log.timestamp).toLocaleString()}
                     </div>
                   </div>
@@ -366,7 +368,7 @@ export default function CookiesPage() {
         </section>
 
         {/* DPIIT Regulatory & Grievance Contact */}
-        <section aria-labelledby="grievance-heading" className="glass-panel rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-white/[0.08] space-y-4">
+        <section aria-labelledby="grievance-heading" className="surface-panel rounded-xl p-6 sm:p-8 border border-slate-200 dark:border-white/[0.08] space-y-4">
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
               <Mail className="w-4 h-4" />

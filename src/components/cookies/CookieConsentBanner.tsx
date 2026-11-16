@@ -7,17 +7,13 @@ import {
   ConsentAuditRecord,
   getStoredConsent,
   recordConsent,
-  DEFAULT_UNCHECKED_PREFERENCES,
-  SUPPORT_EMAIL,
 } from "@/lib/consentLog";
 import {
   Cookie,
   ShieldCheck,
-  CheckCircle2,
   X,
   Sliders,
   ExternalLink,
-  Lock,
 } from "lucide-react";
 
 export function CookieConsentBanner() {
@@ -39,6 +35,8 @@ export function CookieConsentBanner() {
   const [savedRecord, setSavedRecord] = useState<ConsentAuditRecord | null>(null);
 
   useEffect(() => {
+    // Browser storage is unavailable during SSR; hydrate once after mounting.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     const existing = getStoredConsent();
     if (!existing) {
@@ -103,25 +101,17 @@ export function CookieConsentBanner() {
           aria-label="Cookie consent banner"
           className="fixed bottom-4 left-4 right-4 md:left-8 md:right-auto md:max-w-xl z-50 animate-in fade-in slide-in-from-bottom-5 duration-300"
         >
-          <div className="glass-panel p-5 sm:p-6 rounded-3xl border border-cyan-500/30 bg-white/95 dark:bg-[#0b101c]/95 backdrop-blur-xl shadow-2xl text-slate-900 dark:text-neutral-100 space-y-4">
+          <div className="surface-panel p-5 sm:p-6 rounded-xl border border-cyan-500/30 bg-white/95 dark:bg-[#0b101c]/95 backdrop-blur-xl shadow-sm text-slate-900 dark:text-neutral-100 space-y-4">
             <div className="flex items-start gap-3.5">
-              <div className="w-10 h-10 rounded-2xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0 mt-0.5">
+              <div className="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0 mt-0.5">
                 <Cookie className="w-5 h-5" />
               </div>
               <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
-                    DPDPA 2023 & DPIIT Notice
-                  </span>
-                  <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 font-semibold">
-                    Zero Pre-Ticked
-                  </span>
-                </div>
                 <h4 className="text-sm font-bold text-slate-900 dark:text-white">
-                  We Respect Your Sovereign Privacy
+                  Your cookie preferences
                 </h4>
                 <p className="text-xs text-slate-600 dark:text-neutral-300 leading-relaxed">
-                  Under India&apos;s Digital Personal Data Protection Act, 2023, non-essential cookies and marketing preferences require affirmative consent and are <strong>disabled by default</strong>. Essential cookies support zero-flicker theme and session security.
+                  Essential cookies support your session and theme. Optional cookies are off until you choose to enable them.
                 </p>
               </div>
             </div>
@@ -138,7 +128,7 @@ export function CookieConsentBanner() {
               <button
                 type="button"
                 onClick={() => setShowModal(true)}
-                className="flex-1 min-w-[120px] inline-flex items-center justify-center gap-1.5 py-2.5 px-3.5 rounded-xl text-xs font-semibold glass-panel hover:bg-slate-200/50 dark:hover:bg-white/[0.08] text-slate-800 dark:text-white border border-slate-300 dark:border-white/[0.12] transition-colors"
+                className="flex-1 min-w-[120px] inline-flex items-center justify-center gap-1.5 py-2.5 px-3.5 rounded-xl text-xs font-semibold surface-panel hover:bg-slate-200/50 dark:hover:bg-white/[0.08] text-slate-800 dark:text-white border border-slate-300 dark:border-white/[0.12] transition-colors"
               >
                 <Sliders className="w-3.5 h-3.5 text-cyan-500" />
                 <span>Customize</span>
@@ -147,13 +137,13 @@ export function CookieConsentBanner() {
               <button
                 type="button"
                 onClick={handleAcceptAll}
-                className="flex-1 min-w-[120px] py-2.5 px-3.5 rounded-xl text-xs font-bold text-black bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 shadow-md shadow-cyan-500/20 active:scale-[0.98] transition-all text-center"
+                className="flex-1 min-w-[120px] py-2.5 px-3.5 rounded-xl text-xs font-bold text-black bg-cyan-400 hover:bg-cyan-300 shadow-sm   transition-all text-center"
               >
                 Accept All
               </button>
             </div>
 
-            <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-neutral-400 pt-0.5">
+            <div className="flex items-center justify-between text-xs text-slate-500 dark:text-neutral-400 pt-0.5">
               <div className="flex items-center gap-2">
                 <Link href="/privacy" className="hover:underline text-cyan-600 dark:text-cyan-400">
                   Privacy Policy
@@ -167,7 +157,7 @@ export function CookieConsentBanner() {
                   Terms
                 </Link>
               </div>
-              <span>{SUPPORT_EMAIL}</span>
+
             </div>
           </div>
         </aside>
@@ -176,16 +166,16 @@ export function CookieConsentBanner() {
       {/* Preferences & DPDPA Consent Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="glass-panel w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-white/[0.12] bg-white dark:bg-[#0b101c] shadow-2xl text-slate-900 dark:text-neutral-100 space-y-6">
+          <div className="surface-panel w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-xl p-6 sm:p-8 border border-slate-200 dark:border-white/[0.12] bg-white dark:bg-[#0b101c] shadow-sm text-slate-900 dark:text-neutral-100 space-y-6">
             {/* Modal Header */}
             <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-white/[0.08]">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">
-                    DPDPA & DPIIT Cookie Consent Management
+                    Cookie preferences
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-neutral-400">
                     Audit-logged consent record maintained for compliance. No non-essential options are pre-ticked.
@@ -205,13 +195,13 @@ export function CookieConsentBanner() {
             {/* Cookie Categories Accordion / Cards */}
             <div className="space-y-3.5">
               {/* 1. Necessary (Strictly required) */}
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] flex items-start justify-between gap-4">
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] flex items-start justify-between gap-4">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-slate-900 dark:text-white">
                       Strictly Necessary & Security Cookies
                     </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 font-semibold">
+                    <span className="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 font-semibold">
                       Always Active
                     </span>
                   </div>
@@ -228,13 +218,13 @@ export function CookieConsentBanner() {
               </div>
 
               {/* 2. Analytics & Performance - UNCHECKED BY DEFAULT */}
-              <label className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] flex items-start justify-between gap-4 cursor-pointer hover:border-cyan-500/40 transition-colors">
+              <label className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] flex items-start justify-between gap-4 cursor-pointer hover:border-cyan-500/40 transition-colors">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-slate-900 dark:text-white">
                       Performance & System Analytics
                     </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-200 dark:bg-white/[0.08] text-slate-600 dark:text-neutral-400">
+                    <span className="text-xs font-mono px-2 py-0.5 rounded bg-slate-200 dark:bg-white/[0.08] text-slate-600 dark:text-neutral-400">
                       Default: Unchecked
                     </span>
                   </div>
@@ -253,13 +243,13 @@ export function CookieConsentBanner() {
               </label>
 
               {/* 3. Functional Preferences - UNCHECKED BY DEFAULT */}
-              <label className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] flex items-start justify-between gap-4 cursor-pointer hover:border-cyan-500/40 transition-colors">
+              <label className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] flex items-start justify-between gap-4 cursor-pointer hover:border-cyan-500/40 transition-colors">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-slate-900 dark:text-white">
                       Functional & Locale Preferences
                     </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-200 dark:bg-white/[0.08] text-slate-600 dark:text-neutral-400">
+                    <span className="text-xs font-mono px-2 py-0.5 rounded bg-slate-200 dark:bg-white/[0.08] text-slate-600 dark:text-neutral-400">
                       Default: Unchecked
                     </span>
                   </div>
@@ -278,13 +268,13 @@ export function CookieConsentBanner() {
               </label>
 
               {/* 4. Marketing - UNCHECKED BY DEFAULT */}
-              <label className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] flex items-start justify-between gap-4 cursor-pointer hover:border-cyan-500/40 transition-colors">
+              <label className="p-4 rounded-xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] flex items-start justify-between gap-4 cursor-pointer hover:border-cyan-500/40 transition-colors">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-slate-900 dark:text-white">
                       Enterprise Outreach & Communications
                     </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-200 dark:bg-white/[0.08] text-slate-600 dark:text-neutral-400">
+                    <span className="text-xs font-mono px-2 py-0.5 rounded bg-slate-200 dark:bg-white/[0.08] text-slate-600 dark:text-neutral-400">
                       Default: Unchecked
                     </span>
                   </div>
@@ -304,7 +294,7 @@ export function CookieConsentBanner() {
             </div>
 
             {/* Mandatory Terms & Privacy Affirmation Checkbox - UNCHECKED BY DEFAULT */}
-            <div className={`p-4 rounded-2xl border transition-colors ${
+            <div className={`p-4 rounded-xl border transition-colors ${
               termsError
                 ? "border-red-500/50 bg-red-500/[0.05]"
                 : "border-cyan-500/20 bg-cyan-500/[0.02]"
@@ -373,7 +363,7 @@ export function CookieConsentBanner() {
                 <button
                   type="button"
                   onClick={handleSaveCustomPreferences}
-                  className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl text-xs font-bold text-black bg-cyan-400 hover:bg-cyan-300 shadow-md shadow-cyan-500/20 transition-all active:scale-[0.98]"
+                  className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl text-xs font-bold text-black bg-cyan-400 hover:bg-cyan-300 shadow-sm  transition-colors"
                 >
                   Save My Preferences
                 </button>

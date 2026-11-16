@@ -249,3 +249,16 @@ All software architectures, product specifications, and documentation are propri
 <div align="center">
   <sub>Engineered for digital sovereignty. Built with pride by the NOXSOV Core Engineering Team.</sub>
 </div>
+
+## Referral partner portal
+
+The referral portal uses Supabase Auth and the referral tables in [the Supabase migration](supabase/migrations/20261116000000_referral_portal.sql).
+
+1. Apply the migration to your development or staging Supabase project first. It creates missing referral tables and adds the Auth link to existing portal accounts.
+2. Set `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`, and `REFERRAL_PORTAL_URL` in the app environment. Keep the service-role key on the server. Enable email/password authentication and allow the full `<REFERRAL_PORTAL_URL>/partner/activate` URL in Supabase Auth Redirect URLs. Invitations use the standard Supabase invite link and the project's email delivery configuration.
+3. Create the first administrator in Supabase Auth, then insert an active admin in `public.referral_users` with `auth_user_id` set to the user's Auth UUID. For an existing portal account, link that row to the verified Auth UUID while keeping the portal ID and its associated history.
+4. Sign in at `/admin/login` and create partners from `/admin/partners` with their name, email (login ID), password, phone, and company. Share credentials securely. Partners sign in at `/partner/login`. The API also supports email invitations when no password is supplied.
+
+Use the real net qualifying amount for verified customer payments. A referral must be marked won with approved terms before a receipt earns commission. Recording a payout enters a transfer that was completed elsewhere. Partner-wide payouts apply to the oldest eligible balances first.
+
+The legacy `data/referral_database.json` file is unused by the portal. If an earlier installation recorded genuine transactions there, reconcile and migrate those records separately before rollout. Historical partner-wide payouts may have no individual referral allocation. Review them against the settlement records before relying on per-referral paid totals.

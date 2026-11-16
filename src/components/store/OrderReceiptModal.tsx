@@ -5,7 +5,7 @@ import Link from "next/link";
 import { BrandLogo } from "@/components/ui/BrandLogo";
 import { useCart } from "@/context/CartContext";
 import {
-  CheckCircle2,
+
   Copy,
   Check,
   Download,
@@ -52,21 +52,21 @@ export function OrderReceiptModal() {
       />
 
       <div className="min-h-full flex items-center justify-center p-4 sm:p-6">
-        <div className="relative w-full max-w-2xl bg-white dark:bg-[#070c16] rounded-3xl border border-emerald-500/40 shadow-2xl overflow-hidden text-left">
+        <div className="relative w-full max-w-2xl bg-white dark:bg-[#070c16] rounded-xl border border-emerald-500/40 shadow-sm overflow-hidden text-left">
           {/* Header */}
           <div className="p-6 sm:p-8 bg-emerald-500/[0.08] border-b border-emerald-500/20 flex items-start justify-between">
             <div className="flex items-start gap-4">
               <BrandLogo size="md" clickable={false} showText={false} />
               <div className="space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-mono uppercase px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold border border-emerald-500/30">
+                  <span className="text-xs font-mono uppercase px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold border border-emerald-500/30">
                     Provisioning Successful
                   </span>
-                  <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 font-semibold">
+                  <span className="text-xs font-mono uppercase px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 font-semibold">
                     NOXSOV Certified
                   </span>
                 </div>
-                <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-white tracking-tight">
                   Sovereign Licenses Issued
                 </h3>
                 <p className="text-xs text-slate-600 dark:text-neutral-400">
@@ -100,7 +100,7 @@ export function OrderReceiptModal() {
               {activeOrderReceipt.licenses.map((lic, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08] space-y-3"
+                  className="p-5 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08] space-y-3"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <div>
@@ -111,7 +111,7 @@ export function OrderReceiptModal() {
                         {lic.tierName} • {lic.maxNodes}
                       </div>
                     </div>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 font-semibold border border-emerald-500/30">
+                    <span className="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-700 dark:text-emerald-400 font-semibold border border-emerald-500/30">
                       STATUS: {lic.status}
                     </span>
                   </div>
@@ -139,7 +139,7 @@ export function OrderReceiptModal() {
                   </div>
 
                   {/* Key Metadata */}
-                  <div className="grid grid-cols-2 gap-2 text-[11px] text-slate-500 dark:text-neutral-400 font-mono">
+                  <div className="grid grid-cols-2 gap-2 text-xs text-slate-500 dark:text-neutral-400 font-mono">
                     <div>Expires: {new Date(lic.expiresAt).toLocaleDateString()}</div>
                     <div className="truncate">Sig: {lic.digitalSignature.slice(0, 18)}...</div>
                   </div>
@@ -182,7 +182,7 @@ export function OrderReceiptModal() {
             <button
               type="button"
               onClick={() => setActiveOrderReceipt(null)}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-xs font-semibold bg-cyan-400 hover:bg-cyan-300 text-black shadow-md shadow-cyan-500/20 transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-xs font-semibold bg-cyan-400 hover:bg-cyan-300 text-black shadow-sm  transition-colors"
             >
               <ShieldCheck className="w-4 h-4" />
               <span>Done & Continue Browsing Store</span>

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import {
-  FileText,
+
   Shield,
   Scale,
   CheckCircle2,
@@ -29,7 +29,7 @@ export default function TermsPage() {
   return (
     <main className="flex-1 pt-32 pb-24">
       {/* Background ambient lighting */}
-      <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-cyan-500/10 via-sky-500/10 to-indigo-500/15 rounded-full blur-[140px] pointer-events-none -z-10" />
+
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
         {/* Header */}
@@ -39,7 +39,7 @@ export default function TermsPage() {
             <span>Master Enterprise Agreement</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-slate-900 dark:text-white">
             Terms & Conditions of Service
           </h1>
 
@@ -57,7 +57,7 @@ export default function TermsPage() {
         </div>
 
         {/* Core Principles */}
-        <div className="glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/30 bg-gradient-to-br from-cyan-500/[0.04] to-transparent shadow-xl space-y-4">
+        <div className="surface-panel rounded-xl p-6 sm:p-8 border border-cyan-500/30 bg-gradient-to-br from-cyan-500/[0.04] to-transparent shadow-sm space-y-4">
           <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2 font-mono">
             <Shield className="w-4 h-4 text-cyan-500" />
             <span>SOVEREIGN ENTERPRISE PRINCIPLES</span>
@@ -151,9 +151,9 @@ export default function TermsPage() {
             </p>
           </section>
 
-          <section className="space-y-4 p-6 sm:p-8 rounded-3xl glass-panel border border-cyan-500/30 bg-slate-100/50 dark:bg-[#070b14]/50">
+          <section className="space-y-4 p-6 sm:p-8 rounded-xl surface-panel border border-cyan-500/30 bg-slate-100/50 dark:bg-[#070b14]/50">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0">
                 <Mail className="w-5 h-5" />
               </div>
               <div>

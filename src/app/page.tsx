@@ -3,7 +3,6 @@ import { Hero } from "@/components/home/Hero";
 import { CategoryShowcase } from "@/components/home/CategoryShowcase";
 import { FeaturedProducts } from "@/components/home/FeaturedProducts";
 import { EcosystemPrinciples } from "@/components/home/EcosystemPrinciples";
-import { RoiCalculator } from "@/components/home/RoiCalculator";
 import { CtaBanner } from "@/components/home/CtaBanner";
 
 export const metadata: Metadata = {
@@ -30,7 +29,6 @@ export default function HomePage() {
       <CategoryShowcase />
       <FeaturedProducts />
       <EcosystemPrinciples />
-      <RoiCalculator />
       <CtaBanner />
     </main>
   );

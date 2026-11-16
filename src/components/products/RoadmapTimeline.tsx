@@ -15,7 +15,7 @@ export function RoadmapTimeline({ milestones, productName }: RoadmapTimelineProp
             <Clock className="w-3.5 h-3.5" />
             <span>Engineering Milestones</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-white tracking-tight">
             Development Roadmap for {productName}
           </h2>
           <p className="text-sm text-slate-600 dark:text-neutral-300 leading-relaxed">
@@ -44,20 +44,20 @@ export function RoadmapTimeline({ milestones, productName }: RoadmapTimelineProp
                       isCompleted
                         ? "bg-emerald-500 border-slate-50 dark:border-[#06090e] shadow-[0_0_10px_rgba(16,185,129,0.7)]"
                         : isInProgress
-                        ? "bg-amber-500 border-slate-50 dark:border-[#06090e] shadow-[0_0_10px_rgba(245,158,11,0.7)] animate-pulse"
+                        ? "bg-amber-500 border-slate-50 dark:border-[#06090e] shadow-[0_0_10px_rgba(245,158,11,0.7)] "
                         : "bg-slate-300 dark:bg-neutral-700 border-slate-50 dark:border-[#06090e]"
                     }`}
                   />
 
                   {/* Card Content */}
-                  <div className="glass-panel p-6 rounded-2xl border border-slate-200 dark:border-white/[0.08] group-hover:border-slate-300 dark:group-hover:border-white/[0.15] transition-all">
+                  <div className="surface-panel p-6 rounded-xl border border-slate-200 dark:border-white/[0.08] group-hover:border-slate-300 dark:group-hover:border-white/[0.15] transition-all">
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                       <div className="sm:hidden text-xs font-mono text-cyan-600 dark:text-cyan-400 font-bold">
                         {m.quarter}
                       </div>
 
                       <span
-                        className={`text-[11px] font-mono px-2.5 py-0.5 rounded-full font-medium ${
+                        className={`text-xs font-mono px-2.5 py-0.5 rounded-full font-medium ${
                           isCompleted
                             ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20"
                             : isInProgress

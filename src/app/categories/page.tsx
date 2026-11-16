@@ -23,15 +23,12 @@ export default function CategoriesIndexPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
-            <span>Ecosystem Taxonomy</span>
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-            Specialized Domains. <br />
-            Unified Sovereignty.
+          <p className="text-sm font-medium text-cyan-600 dark:text-cyan-400">Solutions</p>
+          <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-slate-900 dark:text-white">
+            Find the right tools for your team.
           </h1>
           <p className="text-base text-slate-600 dark:text-neutral-300 leading-relaxed">
-            NOXSOV clusters products into three dedicated vertical domains. Each vertical addresses deep technical challenges with specialized domain expertise, while remaining natively interoperable across the NOXSOV software platform.
+            Explore our work across security, finance, and IT. Each collection brings together products designed for the needs of your industry.
           </p>
         </div>
 
@@ -45,13 +42,8 @@ export default function CategoriesIndexPage() {
               <section
                 key={category.id}
                 id={category.slug}
-                className="glass-panel rounded-3xl p-8 sm:p-12 border border-slate-200 dark:border-white/[0.1] relative overflow-hidden"
+                className="surface-panel rounded-xl p-8 sm:p-12 border border-slate-200 dark:border-white/[0.1] relative overflow-hidden"
               >
-                {/* Accent glow */}
-                <div
-                  className={`absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl ${category.gradient} rounded-bl-full pointer-events-none opacity-30 dark:opacity-40`}
-                />
-
                 <div className="relative z-10 space-y-8">
                   {/* Category Title & Summary */}
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -101,7 +93,7 @@ export default function CategoriesIndexPage() {
 
                   {/* Products Grid for this category */}
                   <div className="pt-6 border-t border-slate-200 dark:border-white/[0.06]">
-                    <div className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-neutral-400 mb-4">
+                    <div className="text-xs font-medium text-slate-500 dark:text-neutral-400 mb-4">
                       Products in {category.name}
                     </div>
 
@@ -109,7 +101,7 @@ export default function CategoriesIndexPage() {
                       {categoryProducts.map((prod) => (
                         <div
                           key={prod.id}
-                          className="p-5 rounded-2xl bg-slate-50/80 hover:bg-slate-100 dark:bg-white/[0.02] dark:hover:bg-white/[0.04] border border-slate-200 dark:border-white/[0.06] hover:border-cyan-500/30 transition-all flex flex-col justify-between group"
+                          className="p-5 rounded-xl bg-slate-50/80 hover:bg-slate-100 dark:bg-white/[0.02] dark:hover:bg-white/[0.04] border border-slate-200 dark:border-white/[0.06] hover:border-cyan-500/30 transition-all flex flex-col justify-between group"
                         >
                           <div className="space-y-3">
                             <div className="flex items-center justify-between">
@@ -122,7 +114,7 @@ export default function CategoriesIndexPage() {
                                 {prod.name}
                               </h3>
                               {prod.formerName && (
-                                <p className="text-[11px] font-mono text-slate-400 dark:text-neutral-500">
+                                <p className="text-xs font-mono text-slate-400 dark:text-neutral-500">
                                   formerly {prod.formerName}
                                 </p>
                               )}
@@ -134,7 +126,7 @@ export default function CategoriesIndexPage() {
 
                             <div className="space-y-1.5 pt-2 border-t border-slate-200 dark:border-white/[0.04]">
                               {prod.keyCapabilities.slice(0, 2).map((cap, i) => (
-                                <div key={i} className="flex items-start gap-2 text-[11px] text-slate-600 dark:text-neutral-400">
+                                <div key={i} className="flex items-start gap-2 text-xs text-slate-600 dark:text-neutral-400">
                                   <CheckCircle2 className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 shrink-0 mt-0.5" />
                                   <span className="line-clamp-1">{cap}</span>
                                 </div>

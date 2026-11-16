@@ -51,6 +51,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     try {
       const storedTheme = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
       if (storedTheme && (storedTheme === "dark" || storedTheme === "light" || storedTheme === "system")) {
+    // Browser storage is unavailable during SSR; hydrate once after mounting.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
         setThemeState(storedTheme);
         applyThemeToDOM(storedTheme);
       } else {

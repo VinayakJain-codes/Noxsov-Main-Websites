@@ -41,9 +41,9 @@ export function BackToTop() {
       onClick={scrollToTop}
       aria-label="Scroll back to top"
       title="Scroll back to top"
-      className="fixed bottom-6 right-6 z-40 p-2.5 rounded-full shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 group
+      className="fixed bottom-6 right-6 z-40 p-2.5 rounded-full shadow-sm transition-all duration-300 hover:scale-110 active:scale-95 group
         bg-white/90 text-slate-800 border border-slate-300/80 backdrop-blur-md
-        dark:bg-[#0a0f1d]/90 dark:text-neutral-200 dark:border-white/[0.12] dark:shadow-cyan-950/40"
+        dark:bg-[#0a0f1d]/90 dark:text-neutral-200 dark:border-white/[0.12] dark:"
     >
       {/* Circular Progress SVG */}
       <svg className="w-9 h-9 -rotate-90" viewBox="0 0 44 44">

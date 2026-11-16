@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { PRODUCTS } from "@/data/products";
@@ -23,7 +23,9 @@ export function ContactForm() {
     message: "",
   });
 
-  useEffect(() => {
+  const [previousSelection, setPreviousSelection] = useState({ product: preselectedProduct, tier: preselectedTier });
+  if (previousSelection.product !== preselectedProduct || previousSelection.tier !== preselectedTier) {
+    setPreviousSelection({ product: preselectedProduct, tier: preselectedTier });
     if (preselectedProduct) {
       setFormData((prev) => ({
         ...prev,
@@ -31,7 +33,7 @@ export function ContactForm() {
         tier: preselectedTier || prev.tier,
       }));
     }
-  }, [preselectedProduct, preselectedTier]);
+  }
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -98,7 +100,7 @@ export function ContactForm() {
     return (
       <div
         id="contact-success-panel"
-        className="glass-panel rounded-3xl p-8 sm:p-12 border border-emerald-500/40 bg-emerald-500/[0.06] text-center space-y-6 shadow-2xl"
+        className="surface-panel rounded-xl p-8 sm:p-12 border border-emerald-500/40 bg-emerald-500/[0.06] text-center space-y-6 shadow-sm"
       >
         <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-600 dark:text-emerald-400 mx-auto flex items-center justify-center">
           <CheckCircle2 className="w-8 h-8" />
@@ -108,7 +110,7 @@ export function ContactForm() {
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/20">
             <span>Transmission Logged • Sovereign Encryption</span>
           </div>
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          <h3 className="text-2xl sm:text-3xl font-semibold text-slate-900 dark:text-white tracking-tight">
             Enterprise Request Received
           </h3>
           <p className="text-sm text-slate-600 dark:text-neutral-300 max-w-md mx-auto leading-relaxed">
@@ -128,7 +130,7 @@ export function ContactForm() {
           </div>
         )}
         {emailStatus === "unconfigured" && (
-          <div className="max-w-md mx-auto p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-[11px] font-mono text-cyan-800 dark:text-cyan-300">
+          <div className="max-w-md mx-auto p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-xs font-mono text-cyan-800 dark:text-cyan-300">
             <span className="flex items-center justify-center gap-1.5 mb-1 font-semibold">
               <Mail className="w-3.5 h-3.5" />
               <span>EmailJS Ready</span>
@@ -180,14 +182,14 @@ export function ContactForm() {
     <form
       id="enterprise-contact-form"
       onSubmit={handleSubmit}
-      className="glass-panel rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-white/[0.1] shadow-2xl space-y-6"
+      className="surface-panel rounded-xl p-6 sm:p-10 border border-slate-200 dark:border-white/[0.1] shadow-sm space-y-6"
     >
       <div className="border-b border-slate-200 dark:border-white/[0.08] pb-4 space-y-1">
         <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
-          Request Technical Briefing or Deployment
+          Tell us about your project
         </h3>
         <p className="text-xs text-slate-500 dark:text-neutral-400">
-          Direct communication with our engineering council. Zero sales spam.
+          Share your requirements and our team will get back to you.
         </p>
       </div>
 
@@ -327,7 +329,7 @@ export function ContactForm() {
       </div>
 
       {/* Mandatory Terms & Conditions Checkbox - UNCHECKED BY DEFAULT */}
-      <div className={`p-4 rounded-2xl border transition-colors ${
+      <div className={`p-4 rounded-xl border transition-colors ${
         termsValidationError
           ? "border-red-500/50 bg-red-500/[0.05]"
           : "border-slate-200 dark:border-white/[0.08] bg-slate-50/60 dark:bg-white/[0.02]"
@@ -366,14 +368,14 @@ export function ContactForm() {
       <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-neutral-400">
           <ShieldCheck className="w-4 h-4 text-emerald-500 dark:text-emerald-400" />
-          <span>Encrypted transmission • Direct engineering routing via EmailJS</span>
+          <span>We’ll reply to the email address you provide.</span>
         </div>
 
         <button
           id="contact-submit-btn"
           type="submit"
           disabled={isSubmitting}
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-xs text-black bg-cyan-400 hover:bg-cyan-300 transition-all shadow-lg shadow-cyan-500/25 active:scale-[0.98] disabled:opacity-50"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl font-semibold text-xs text-black bg-cyan-400 hover:bg-cyan-300 transition-all shadow-sm   disabled:opacity-50"
         >
           {isSubmitting ? (
             <>
@@ -382,7 +384,7 @@ export function ContactForm() {
             </>
           ) : (
             <>
-              <span>Transmit Inquiry</span>
+              <span>Send inquiry</span>
               <Send className="w-3.5 h-3.5" />
             </>
           )}

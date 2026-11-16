@@ -16,7 +16,7 @@ export default function ContactPage() {
   return (
     <main className="flex-1 pt-32 pb-24">
       {/* Background glow */}
-      <div className="absolute top-0 right-1/3 w-[500px] h-[350px] bg-gradient-to-tr from-cyan-500/15 via-blue-500/10 to-indigo-500/15 rounded-full blur-[130px] pointer-events-none -z-10" />
+
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-neutral-400 mb-8" aria-label="Breadcrumb">
@@ -37,8 +37,8 @@ export default function ContactPage() {
                   <span>Enterprise Dispatch</span>
                 </div>
               </div>
-              <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
-                Connect Directly With Engineering & Sales
+              <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-slate-900 dark:text-white leading-tight">
+                Let’s talk about your project.
               </h1>
               <p className="text-sm sm:text-base text-slate-600 dark:text-neutral-300 leading-relaxed">
                 Whether assessing Kryptik for national infrastructure or exploring NOXSOV Events for high-volume venues, we connect you directly with systems engineers—not commission salespeople.
@@ -47,7 +47,7 @@ export default function ContactPage() {
 
             {/* Direct Channel Cards */}
             <div className="space-y-4">
-              <div className="glass-panel p-5 rounded-2xl border border-slate-200 dark:border-white/[0.08] flex items-start gap-4">
+              <div className="surface-panel p-5 rounded-xl border border-slate-200 dark:border-white/[0.08] flex items-start gap-4">
                 <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
@@ -65,7 +65,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="glass-panel p-5 rounded-2xl border border-slate-200 dark:border-white/[0.08] flex items-start gap-4">
+              <div className="surface-panel p-5 rounded-xl border border-slate-200 dark:border-white/[0.08] flex items-start gap-4">
                 <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 shrink-0">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
@@ -83,7 +83,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="glass-panel p-5 rounded-2xl border border-slate-200 dark:border-white/[0.08] flex items-start gap-4">
+              <div className="surface-panel p-5 rounded-xl border border-slate-200 dark:border-white/[0.08] flex items-start gap-4">
                 <div className="p-3 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 shrink-0">
                   <Clock className="w-5 h-5" />
                 </div>
@@ -104,7 +104,7 @@ export default function ContactPage() {
           <div className="lg:col-span-7">
             <Suspense
               fallback={
-                <div className="glass-panel rounded-3xl p-12 text-center text-slate-500 dark:text-neutral-400 font-mono text-xs">
+                <div className="surface-panel rounded-xl p-12 text-center text-slate-500 dark:text-neutral-400 font-mono text-xs">
                   Loading enterprise dispatch terminal...
                 </div>
               }

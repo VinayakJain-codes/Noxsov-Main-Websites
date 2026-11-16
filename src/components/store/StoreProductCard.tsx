@@ -27,7 +27,7 @@ export function StoreProductCard({ product }: StoreProductCardProps) {
     product.pricing[selectedTierIndex] || product.pricing[0];
 
   return (
-    <div className="glass-panel rounded-3xl border border-slate-200 dark:border-white/[0.08] hover:border-cyan-500/40 dark:hover:border-cyan-500/40 transition-all duration-300 shadow-xl overflow-hidden flex flex-col justify-between group">
+    <div className="surface-panel rounded-xl border border-slate-200 dark:border-white/[0.08] hover:border-cyan-500/40 dark:hover:border-cyan-500/40 transition-all duration-300 shadow-sm overflow-hidden flex flex-col justify-between group">
       {/* Top Media & Badges */}
       <div>
         <div className="relative aspect-[16/9] w-full bg-slate-950 overflow-hidden">
@@ -43,13 +43,13 @@ export function StoreProductCard({ product }: StoreProductCardProps) {
           {/* Top badges */}
           <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
             <StatusBadge status={product.status} />
-            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-cyan-400 border border-white/[0.1] font-semibold">
+            <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-cyan-400 border border-white/[0.1] font-semibold">
               {product.version}
             </span>
           </div>
 
           {/* Delivery tag on image bottom */}
-          <div className="absolute bottom-2.5 left-3 flex items-center gap-1.5 text-[11px] text-white/90 font-mono backdrop-blur-md px-2 py-0.5 rounded bg-black/40">
+          <div className="absolute bottom-2.5 left-3 flex items-center gap-1.5 text-xs text-white/90 font-mono backdrop-blur-md px-2 py-0.5 rounded bg-black/40">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
             <span>{product.deliveryType}</span>
           </div>
@@ -85,7 +85,7 @@ export function StoreProductCard({ product }: StoreProductCardProps) {
             {product.platforms.slice(0, 3).map((plat, i) => (
               <span
                 key={i}
-                className="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-white/[0.04] text-slate-600 dark:text-neutral-300 border border-slate-200 dark:border-white/[0.06]"
+                className="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-white/[0.04] text-slate-600 dark:text-neutral-300 border border-slate-200 dark:border-white/[0.06]"
               >
                 {plat}
               </span>
@@ -93,13 +93,13 @@ export function StoreProductCard({ product }: StoreProductCardProps) {
           </div>
 
           {/* Tier Selector & Scope Configuration */}
-          <div className="p-3.5 rounded-2xl bg-slate-100/70 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-3">
+          <div className="p-3.5 rounded-xl bg-slate-100/70 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] space-y-3">
             {/* Tier Select Buttons */}
             {product.pricing.length > 1 && (
               <div className="space-y-1">
-                <label className="text-[11px] font-medium text-slate-500 dark:text-neutral-400 flex items-center justify-between">
+                <label className="text-xs font-medium text-slate-500 dark:text-neutral-400 flex items-center justify-between">
                   <span>Deployment Tier:</span>
-                  <span className="text-cyan-600 dark:text-cyan-400 font-bold text-[10px]">
+                  <span className="text-cyan-600 dark:text-cyan-400 font-bold text-xs">
                     {activeTier.maxNodes}
                   </span>
                 </label>
@@ -108,8 +108,9 @@ export function StoreProductCard({ product }: StoreProductCardProps) {
                     <button
                       key={idx}
                       type="button"
+                      aria-pressed={selectedTierIndex === idx}
                       onClick={() => setSelectedTierIndex(idx)}
-                      className={`px-2 py-1.5 rounded-lg text-[11px] font-semibold transition-all truncate text-center ${
+                      className={`px-2 py-1.5 rounded-lg text-xs font-semibold transition-all truncate text-center ${
                         selectedTierIndex === idx
                           ? "bg-cyan-500/15 border border-cyan-500 text-cyan-800 dark:text-cyan-300 shadow-sm"
                           : "border border-transparent bg-white/60 dark:bg-white/[0.03] text-slate-600 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-white"
@@ -140,7 +141,7 @@ export function StoreProductCard({ product }: StoreProductCardProps) {
       <div className="p-5 sm:p-6 pt-0 space-y-2">
         <Link
           href={`/contact?product=${product.slug}&tier=${encodeURIComponent(activeTier.name)}`}
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold text-black bg-gradient-to-r from-cyan-400 to-cyan-300 hover:from-cyan-300 hover:to-cyan-200 shadow-md shadow-cyan-500/20 active:scale-[0.98] transition-all text-center"
+          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-xs font-bold text-black bg-cyan-400 hover:bg-cyan-300 shadow-sm   transition-all text-center"
         >
           <Mail className="w-3.5 h-3.5" />
           <span>Request Deployment Quote</span>
@@ -149,7 +150,7 @@ export function StoreProductCard({ product }: StoreProductCardProps) {
 
         <Link
           href={`/products/${product.slug}`}
-          className="w-full flex items-center justify-center gap-1 py-1 text-[11px] text-slate-500 dark:text-neutral-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors group/link"
+          className="w-full flex items-center justify-center gap-1 py-1 text-xs text-slate-500 dark:text-neutral-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors group/link"
         >
           <span>View Deep Architecture & Specifications</span>
           <ArrowRight className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform" />

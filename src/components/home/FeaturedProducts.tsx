@@ -14,10 +14,10 @@ export function FeaturedProducts() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20">
-            <span>Production Systems & Active Roadmap</span>
+            <span>Products</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-            Honest Software. Built to Scale.
+          <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-slate-900 dark:text-white">
+            Explore the product range.
           </h2>
           <p className="text-base text-slate-600 dark:text-neutral-400 leading-relaxed">
             We hold ourselves to a strict standard: live products represent actual implemented code running in production. Upcoming solutions are labeled transparently with public milestones.
@@ -28,9 +28,9 @@ export function FeaturedProducts() {
         <div className="space-y-16 mb-24">
           <div className="flex items-center gap-3">
             <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
-              Delivered & In Production
+              Available products
             </h3>
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-emerald-500 " />
           </div>
 
           {liveProducts.map((prod, index) => {
@@ -38,7 +38,7 @@ export function FeaturedProducts() {
             return (
               <div
                 key={prod.id}
-                className="glass-panel rounded-3xl border border-slate-200 dark:border-white/[0.1] p-6 sm:p-10 relative overflow-hidden shadow-2xl"
+                className="surface-panel rounded-xl border border-slate-200 dark:border-white/[0.1] p-6 sm:p-10 relative overflow-hidden shadow-sm"
               >
                 <div
                   className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center ${
@@ -62,7 +62,7 @@ export function FeaturedProducts() {
                     </div>
 
                     <div>
-                      <h4 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                      <h4 className="text-2xl sm:text-3xl font-semibold text-slate-900 dark:text-white tracking-tight">
                         {prod.name}
                       </h4>
                       <p className="text-xs font-mono text-cyan-600 dark:text-cyan-400 mt-1">
@@ -103,15 +103,15 @@ export function FeaturedProducts() {
                     <div className="flex flex-wrap items-center gap-4 pt-4">
                       <Link
                         href={`/products/${prod.slug}`}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-black bg-cyan-400 hover:bg-cyan-300 transition-colors shadow-md shadow-cyan-500/20"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-black bg-cyan-400 hover:bg-cyan-300 transition-colors shadow-sm "
                       >
-                        <span>View Architecture & Specs</span>
+                        <span>Explore product</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
 
                       <Link
                         href={`/contact?product=${prod.slug}`}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-white glass-panel hover:bg-slate-200/50 dark:hover:bg-white/[0.06] border border-slate-300 dark:border-white/[0.1] transition-colors"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-slate-800 dark:text-white surface-panel hover:bg-slate-200/50 dark:hover:bg-white/[0.06] border border-slate-300 dark:border-white/[0.1] transition-colors"
                       >
                         <span>Request Demonstration</span>
                       </Link>
@@ -124,7 +124,7 @@ export function FeaturedProducts() {
                       isReversed ? "lg:order-1" : "lg:order-2"
                     }`}
                   >
-                    <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-white/[0.12] bg-slate-950 dark:bg-[#070b14] shadow-2xl">
+                    <div className="relative rounded-xl overflow-hidden border border-slate-200 dark:border-white/[0.12] bg-slate-950 dark:bg-[#070b14] shadow-sm">
                       <div className="relative aspect-[16/9] w-full">
                         <Image
                           src={prod.image}
@@ -137,18 +137,18 @@ export function FeaturedProducts() {
                       </div>
 
                       {/* Live overlay tag */}
-                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs glass-panel p-3 rounded-xl border border-slate-200/60 dark:border-white/[0.1] backdrop-blur-md">
+                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs bg-slate-950/90 p-3 rounded-xl border border-slate-200/60 dark:border-white/[0.1] backdrop-blur-md">
                         <div className="flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                          <span className="w-2 h-2 rounded-full bg-emerald-500 " />
                           <span className="text-white font-medium">
-                            {prod.name} Live Production Telemetry
+                            {prod.name} Product preview
                           </span>
                         </div>
                         <Link
                           href={`/products/${prod.slug}`}
                           className="text-cyan-400 hover:text-cyan-300 font-semibold inline-flex items-center gap-1"
                         >
-                          Deep-Dive &rarr;
+                          View product &rarr;
                         </Link>
                       </div>
                     </div>
@@ -164,7 +164,7 @@ export function FeaturedProducts() {
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-3">
               <h3 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
-                In Development & Architectural Concepts
+                In development
               </h3>
               <span className="w-2 h-2 rounded-full bg-amber-500" />
             </div>
@@ -177,7 +177,7 @@ export function FeaturedProducts() {
             {upcomingProducts.map((prod) => (
               <div
                 key={prod.id}
-                className="glass-panel rounded-2xl border border-slate-200 dark:border-white/[0.08] glass-panel-hover p-6 flex flex-col justify-between group overflow-hidden"
+                className="surface-panel rounded-xl border border-slate-200 dark:border-white/[0.08] surface-panel-hover p-6 flex flex-col justify-between group overflow-hidden"
               >
                 <div className="space-y-4">
                   {/* Image Thumbnail */}
@@ -210,7 +210,7 @@ export function FeaturedProducts() {
 
                   <div className="space-y-1.5 pt-2 border-t border-slate-200 dark:border-white/[0.06]">
                     {prod.keyCapabilities.slice(0, 2).map((cap, i) => (
-                      <div key={i} className="flex items-start gap-2 text-[11px] text-slate-600 dark:text-neutral-400">
+                      <div key={i} className="flex items-start gap-2 text-xs text-slate-600 dark:text-neutral-400">
                         <CheckCircle2 className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 shrink-0 mt-0.5" />
                         <span className="line-clamp-1">{cap}</span>
                       </div>
@@ -233,9 +233,9 @@ export function FeaturedProducts() {
         </div>
 
         {/* Software Store Promotion Banner */}
-        <div className="mt-16 glass-panel rounded-3xl p-6 sm:p-8 border border-cyan-500/30 bg-gradient-to-r from-cyan-500/[0.06] via-transparent to-blue-500/[0.06] flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-16 surface-panel rounded-xl p-6 sm:p-8 border border-cyan-500/30 bg-gradient-to-r from-cyan-500/[0.06] via-transparent to-blue-500/[0.06] flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-left">
-            <div className="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-bold">
+            <div className="text-xs font-medium text-cyan-600 dark:text-cyan-400 font-bold">
               Direct Software Procurement
             </div>
             <h4 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
@@ -248,7 +248,7 @@ export function FeaturedProducts() {
 
           <Link
             href="/store"
-            className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-xs text-black bg-cyan-400 hover:bg-cyan-300 shadow-md shadow-cyan-500/20 transition-all active:scale-[0.98]"
+            className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-xs text-black bg-cyan-400 hover:bg-cyan-300 shadow-sm  transition-colors"
           >
             <span>Explore Software Catalog</span>
             <ArrowRight className="w-4 h-4" />

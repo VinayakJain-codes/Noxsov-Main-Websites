@@ -16,7 +16,6 @@ interface StoreDatabase {
 }
 
 declare global {
-  // eslint-disable-next-line no-var
   var __noxsov_store_db__: StoreDatabase | undefined;
 }
 
