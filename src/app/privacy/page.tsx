@@ -281,6 +281,13 @@ export default function PrivacyPolicyPage() {
           >
             <span>Terms of Service & Conditions</span>
           </Link>
+
+          <Link
+            href="/refund"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-white"
+          >
+            <span>Cancellation & Refund Policy</span>
+          </Link>
         </div>
       </div>
     </main>

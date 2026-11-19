@@ -151,6 +151,19 @@ export default function TermsPage() {
             </p>
           </section>
 
+          <section className="space-y-3">
+            <h2 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
+              <span className="text-cyan-600 dark:text-cyan-400 font-mono text-base">06.</span>
+              <span>Subscription Billing, Cancellation & Refund Terms</span>
+            </h2>
+            <p>
+              NOXSOV software solutions operate on a recurring subscription model (monthly or annual). Customers may cancel their active subscriptions at any time without exit penalties or hidden cancellation fees. Upon cancellation, access remains active through the end of the current prepaid billing period.
+            </p>
+            <p>
+              Because software licenses and computational resources are provisioned immediately upon transaction, refunds are strictly granted only in the event of verified, unresolvable technical software glitches in accordance with our dedicated <Link href="/refund" className="text-cyan-600 dark:text-cyan-400 underline font-semibold">Cancellation & Refund Policy</Link>.
+            </p>
+          </section>
+
           <section className="space-y-4 p-6 sm:p-8 rounded-xl surface-panel border border-cyan-500/30 bg-slate-100/50 dark:bg-[#070b14]/50">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0">
@@ -189,6 +202,13 @@ export default function TermsPage() {
           >
             <span>Review Privacy Policy (DPDPA 2023)</span>
             <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+
+          <Link
+            href="/refund"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-neutral-400 hover:text-slate-900 dark:hover:text-white"
+          >
+            <span>Cancellation & Refund Policy</span>
           </Link>
 
           <Link

@@ -39,7 +39,7 @@ export function Footer() {
         <div className="mt-12 flex flex-col justify-between gap-5 border-t border-slate-200 pt-6 text-xs text-slate-500 dark:border-slate-800 sm:flex-row">
           <p>© {new Date().getFullYear()} NOXSOV Pvt. Ltd.</p>
           <div className="flex flex-wrap gap-6">
-            <Link href="/privacy">Privacy</Link><Link href="/cookies">Cookie preferences</Link><Link href="/terms">Terms</Link><Link href="/contact">Security disclosures</Link>
+            <Link href="/privacy">Privacy</Link><Link href="/cookies">Cookie preferences</Link><Link href="/terms">Terms</Link><Link href="/refund">Refund policy</Link><Link href="/contact">Security disclosures</Link>
           </div>
         </div>
       </div>

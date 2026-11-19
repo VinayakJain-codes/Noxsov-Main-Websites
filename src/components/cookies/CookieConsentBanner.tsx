@@ -156,6 +156,10 @@ export function CookieConsentBanner() {
                 <Link href="/terms" className="hover:underline text-cyan-600 dark:text-cyan-400">
                   Terms
                 </Link>
+                <span>•</span>
+                <Link href="/refund" className="hover:underline text-cyan-600 dark:text-cyan-400">
+                  Refunds
+                </Link>
               </div>
 
             </div>

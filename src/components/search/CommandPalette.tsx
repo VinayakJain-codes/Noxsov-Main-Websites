@@ -21,6 +21,7 @@ import {
   UserCheck,
   PlusCircle,
   FileText,
+  RefreshCw,
 } from "lucide-react";
 
 interface CommandPaletteProps {
@@ -119,6 +120,13 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       category: "Company",
       icon: Building,
       action: () => navigateTo("/about"),
+    },
+    {
+      id: "action-refund",
+      title: "Cancellation & Refund Policy (Cancel Anytime, Software Glitch Guarantee)",
+      category: "Legal & Policies",
+      icon: RefreshCw,
+      action: () => navigateTo("/refund"),
     },
     {
       id: "action-theme-toggle",
